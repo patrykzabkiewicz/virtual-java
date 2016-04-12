@@ -37,6 +37,11 @@
  *		- security tests
  *		-
  *
+ * 		Security enhancments:
+ *		- boundy checks
+ *		- bit ecc checks on data types
+ *		-
+ *
  *	Author: 	Patryk Zabkiewicz
  *	Date: 		2016-03-23
  *
