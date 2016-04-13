@@ -1,11 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "includes.h"
 #include "y.tab.h"
 
-int 
-ex(nodeType * p)
-{
+int ex(nodeType * p) {
 	int i=0;
 	int wynik=0;
 
@@ -70,7 +67,7 @@ ex(nodeType * p)
 
 		case '^':
 			{
-			wynik = ex(p->value.opr.op[0]); 
+			wynik = ex(p->value.opr.op[0]);
 			for(i=1; i < ex(p->value.opr.op[1]); i++) wynik *= ex(p->value.opr.op[0]);
 			return wynik;
 			}

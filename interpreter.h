@@ -1,8 +1,8 @@
+
 typedef struct nodeTypeTag nodeType, *nodeTypePtr;
 
-
 typedef enum {
-	typeCon, 
+	typeCon,
 	typeId,
 	typeOpr
 } nodeEnum;
