@@ -1,13 +1,13 @@
 # lightweight-java-vm
 Lightweight Java virtual machine
 
-Project is intended to provide a lightweight java virtual machine
-Can run both Java and C++ programs on seperate enviroments from underneath platform
-Your program will execute always the same way on every platform
-No JIT compilation and no different behaviour for different data
-Enterprise level of security, ECC checks and bulletprof isolation from outside world
-Perfect for Banking, Finance and Enterprises
-100% compatible with your current java code, but executes it faster and more safetly than JVM
+	Project is intended to provide a lightweight java virtual machine
+	Can run both Java and C++ programs on seperate enviroments from underneath platform
+	Your program will execute always the same way on every platform
+	No JIT compilation and no different behaviour for different data
+	Enterprise level of security, ECC checks and bulletprof isolation from outside world
+	Perfect for Banking, Finance and Enterprises
+	100% compatible with your current java code, but executes it faster and more safetly than JVM
 
 	Main features are:
 	- register based, with stack
