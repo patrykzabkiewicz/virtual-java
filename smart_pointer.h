@@ -10,19 +10,19 @@
 
 #include "typedef.h"
 
+struct _smrt_ptr_p; /* Opaque type */
+
 typedef struct _smrt_ptr {
-	void * __ptr;
-	uint32 * __ref_count;
-	uint32 * __elem_size; /* max jump */
+	const void * __ptr;				/* valid pointer */
+	struct _smrt_ptr_p * __private; /* private member */
+	uint8 __copy : 1;
 
 	void (*smrt_ptr_refrence)(SMRT_PTR * ptr);
 	void (*smrt_ptr_release)(SMRT_PTR * ptr);
 } SMRT_PTR;
 
-void smrt_ptr_init(SMRT_PTR * ptr, uint32 elem_size);
+void smrt_ptr_init(const SMRT_PTR * this, const SMRT_PTR * ptr, uint32 elem_size);
 
-void smrt_ptr_refrence(SMRT_PTR * ptr);
-
-void smrt_ptr_release(SMRT_PTR * ptr);
+const SMRT_PTR * smrt_ptr_copy(const SMRT_PTR * this);
 
 #endif /* SMART_POINTER_H_ */

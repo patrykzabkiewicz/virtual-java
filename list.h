@@ -6,15 +6,15 @@
 /* Single list element */
 typedef struct _list_elem {
   void * data;		/* Element data */
-  void * next;
-  void * prev;
+  struct _list_elem * next;
+  struct _list_elem * prev;
 } LIST_ELEM;
 
 
 /* Double ended list */
 typedef struct _list {
-  void * first;
-  void * last;
+	LIST_ELEM * first;
+	LIST_ELEM * last;
 
   uint32 count;				/* count of elements in the list */
   uint32 elem_size;			/* element size in bytes */
@@ -31,7 +31,7 @@ typedef struct _list {
 /* Appends element to front of the list */
 void list_append_front(LIST * this, void * elem);
 
-/* Appends element to back fo the list */
+/* Appends element to back from the list */
 void list_append_back(LIST * this, void * elem);
 
 /* Returns number of bytes popped from back of the list */
