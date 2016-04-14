@@ -29,16 +29,16 @@ typedef struct _list {
 } LIST;
 
 /* Appends element to front of the list */
-void list_append_front(LIST * this, void * elem);
+void list_append_front(LIST * this, LIST_ELEM * elem);
 
 /* Appends element to back from the list */
-void list_append_back(LIST * this, void * elem);
+void list_append_back(LIST * this, LIST_ELEM * elem);
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_back(LIST * this, void * elem);
+uint32 list_pop_back(LIST * this, LIST_ELEM * elem);
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_front(LIST * this, void * elem);
+uint32 list_pop_front(LIST * this, LIST_ELEM * elem);
 
 /* Initiates the list structure */
 void list_init(LIST * this, uint32 elem_size);

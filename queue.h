@@ -33,7 +33,4 @@ uint32 queue_pop_front(QUEUE * queue, QUEUE_ELEM * elem);
 /* Initiates the list structure */
 void queue_init(QUEUE * queue, uint32 elem_size);
 
-/* check if there is next element */
-uint8 queue_hasNext(QUEUE * queue);
-
 #endif // QUEUE_H

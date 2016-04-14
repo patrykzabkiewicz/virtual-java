@@ -25,12 +25,3 @@ void queue_init(QUEUE * queue, uint32 elem_size) {
 	queue->queue_append_back = &queue_append_back;
 	queue->queue_pop_front = &queue_pop_front;
 }
-
-/* check if there is next element */
-uint8 queue_hasNext(QUEUE * queue) {
-	if(queue->first) {
-		return 1;
-	} else {
-		return 0;
-	}
-}

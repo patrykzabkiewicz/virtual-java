@@ -7,6 +7,12 @@
  *
 */
 
+#ifndef VIRTUAL_MACHINE_H
+#define VIRTUAL_MACHINE_H
+
+#include "typedef.h"
+#include "queue.h"
+#include "stack.h"
 
 /* Structure for machine language instructions */
 typedef struct _instr {
@@ -29,11 +35,20 @@ typedef struct _cpu {
 	uint8 MINUS : 1;		/* Result is negative */
 } PX_CPU;
 
+/* Stack simulator structure */
 typedef struct _stack {
 	uint8 count;
 	uint8 * data;
 	uint8 * first;
 } PX_STACK;
+
+/* Machine structure */
+typedef struct _machine {
+	PX_CPU * cpu;
+	PX_STACK * stack;
+
+	QUEUE * instr_queue; /* instruction queue */
+} MACHINE;
 
 /* Structure that holds all the virtual machines abstraction */
 typedef struct _machines_struct {
@@ -43,3 +58,5 @@ typedef struct _machines_struct {
 
 /* initialization of virtual machines */
 int virtual_machine_init(int argc, char **argv);
+
+#endif // VIRTUAL_MACHINE_H
