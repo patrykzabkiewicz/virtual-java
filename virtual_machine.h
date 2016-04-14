@@ -23,9 +23,11 @@ typedef struct _instr {
 
 /* CPU simulator structure */
 typedef struct _cpu {
-	uint64 AX;		/* 64-bit register */
-	uint64 BX;		/* 64-bit register */
-	uint64 CX;		/* 64-bit register */
+	// the registers could be queues of states that one can come to specific another
+	// the whole cpu could be rabin-scott state machine
+	QUEUE * AX;		/* 64-bit register */
+	QUEUE * BX;		/* 64-bit register */
+	QUEUE * CX;		/* 64-bit register */
 
 	uint32 PC;		/* Program counter */
 
