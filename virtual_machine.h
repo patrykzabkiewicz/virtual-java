@@ -25,9 +25,9 @@ typedef struct _instr {
 typedef struct _cpu {
 	// the registers could be queues of states that one can come to specific another
 	// the whole cpu could be rabin-scott state machine
-	QUEUE * AX;		/* 64-bit register */
-	QUEUE * BX;		/* 64-bit register */
-	QUEUE * CX;		/* 64-bit register */
+	STACK * AX;		/* 64-bit register */
+	STACK * BX;		/* 64-bit register */
+	STACK * CX;		/* 64-bit register */
 
 	uint32 PC;		/* Program counter */
 
