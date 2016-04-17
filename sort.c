@@ -1,26 +1,24 @@
 /*
- * sort.h
+ * sort.c
  *
- *  Created on: 16 kwi 2016
+ *  Created on: 17 kwi 2016
  *      Author: zabkiewi
  */
 
-#ifndef SORT_H_
-#define SORT_H_
+#include "sort.h"
 
-#include "typedef.h"
-
-/* quick sort */
+/* quicksort */
 void sort(
 		void * structure, 		/* structure to be sorted */
 		void * comparator,		/* pointer to comparator function */
+		void * first,			/* pointer to first element */
 		uint32 elem_size,		/* size of single element of data structure */
 		uint32 elem_count,		/* quantity of elements in the sorted structure */
-		uint32 max_size,		/* size of all elements, boundary checks */
-		uint32 structure_size	/* whole structure size */
-		);
+		uint32 max_size			/* size of whole structure, boundary checks */
+		) {
 
-/* insert sort */
+}
+
 void insert_sort(
 		void * structure,		/* structure to be sorted */
 		void * comparator,		/* pointer to comparator function */
@@ -28,7 +26,6 @@ void insert_sort(
 		uint32 elem_count,		/* quantity of elements */
 		uint32 max_size,		/* size of all elements */
 		uint32 structure_size	/* size of the structure */
-		);
+		) {
 
-
-#endif /* SORT_H_ */
+}
