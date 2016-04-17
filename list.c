@@ -53,3 +53,14 @@ uint32 list_pop_front(LIST * this, LIST_ELEM * elem) {
 	this->first = elem->next;
 	return this->elem_size;
 }
+
+/* reverse elements of the list */
+void list_reverse(LIST * this) {
+	LIST * tmp;
+
+}
+
+/* sort elements in the list */
+void list_sort(LIST * this, void (*comparator)) {
+
+}

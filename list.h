@@ -46,4 +46,10 @@ void list_init(LIST * this, uint32 elem_size);
 /* Copy constructor */
 void list_init_copy(LIST * this, LIST * list);
 
+/* reverse elements of the list */
+void list_reverse(LIST * this);
+
+/* sort elements in the list */
+void list_sort(LIST * this, void (*comparator));
+
 #endif // LIST_H
