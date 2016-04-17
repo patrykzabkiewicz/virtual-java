@@ -26,14 +26,21 @@ STACK * stack_copy(STACK * stack) {
 /* makes a hard copy of the stack */
 STACK * stack_hard_copy(STACK * stack) {
 	STACK * tmp;
+	STACK_ELEM * org_tmp, * dest_tmp;
+
 	tmp->copy = 0;
 	tmp->count = stack->count;
 	tmp->elem_size = stack->elem_size;
 	tmp->first = stack->first;
-	// copy all elements one by one
-	while(stack->first) {
 
+	// copy all elements one by one
+	org_tmp = stack->first;
+	while(org_tmp) {
+		memncpy(dest_tmp , org_tmp->data, stack->elem_size);
+		tmp->first->next = dest_tmp;
+		org_tmp = org_tmp->next;
 	}
+
 	return tmp;
 }
 
