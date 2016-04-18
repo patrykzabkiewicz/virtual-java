@@ -1,3 +1,13 @@
+/**
+ *
+ * channels.h
+ *
+ * channels implementation similar to QNX channels
+ *
+ *  Created on: 16 kwi 2016
+ *      Author: zabkiewi
+ *
+ */
 #ifndef CHANNELS_H
 #define CHANNELS_H
 
@@ -14,10 +24,10 @@ typedef struct _channel {
 
 
 /* Reads date from the channel */
-void readChnl(uint8 * CHNL, uint8 size) {}
+void readChnl(uint8 * CHNL, uint8 size);
 
 
 /* Writes date onto a channel */
-void writeChnl(uint8 * CHNL, uint8 size) {}
+void writeChnl(uint8 * CHNL, uint8 size);
 
 #endif // CHANNELS_H

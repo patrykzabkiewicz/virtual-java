@@ -11,4 +11,10 @@
 #define int32 int
 #define int64 long long
 
+#define size_t unsigned int
+
+#define bool int
+#define true 1
+#define false 0
+
 #endif // TYPEDEF_H

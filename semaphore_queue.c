@@ -1,8 +1,13 @@
 #include "semaphore_queue.h"
 
 /* initiates the semaphore queue */
-void sem_q_init(SEMAPHORE_QUEUE * this, uint32 elem_size) {
-
+void sem_q_init(SEMAPHORE_QUEUE * this, uint32 elem_size, uint32 read_limit) {
+	this->count = 0;
+	this->elem_size = elem_size;
+	this->first = 0;
+	this->last = 0;
+	this->max_size = 0;
+	this->read_limit = read_limit;
 }
 
 /* takes element from the queue */
