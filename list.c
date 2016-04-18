@@ -8,18 +8,10 @@
 #include "list.h"
 
 void list_init(LIST * this, uint32 elem_size) {
-	this->list_append_front = &list_append_front;
-	this->list_append_back = &list_append_back;
-	this->list_pop_back = &list_pop_back;
-	this->list_pop_front = &list_pop_front;
 	this->elem_size = elem_size;
 }
 
 void list_init_copy(LIST * this, LIST * list) {
-	this->list_append_front = &list_append_front;
-	this->list_append_back = &list_append_back;
-	this->list_pop_back = &list_pop_back;
-	this->list_pop_front = &list_pop_front;
 	this->elem_size = list->elem_size;
 	this->copy = 1;
 }
@@ -60,7 +52,8 @@ void list_reverse(LIST * this) {
 	LIST_ELEM * tmp_ptr;
 	tmp_ptr = this->first;
 	while(tmp_ptr) {
-		tmp->list_append_front(tmp, tmp_ptr);
+		tmp_ptr->next = tmp->first;
+		tmp->first = tmp_ptr;
 		tmp_ptr = tmp_ptr->next;
 	}
 }
@@ -82,6 +75,7 @@ void list_qsort(
 	}
 }
 
+/* partitioner for quick sort */
 LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr,int(*comparator)) {
 	LIST_ELEM * pivot_ptr;
 	LIST_ELEM * tmp;
@@ -113,7 +107,8 @@ LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr,i
     }
 }
 
-int int_sorter( const void *first_arg, const void *second_arg )
+/* integer sorter */
+int int_comparator( const void *first_arg, const void *second_arg )
 {
     int first = *(int*)first_arg;
     int second = *(int*)second_arg;

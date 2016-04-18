@@ -15,17 +15,10 @@ typedef struct _list_elem {
 typedef struct _list {
 	LIST_ELEM * first;
 	LIST_ELEM * last;
-
-  uint32 count;				/* count of elements in the list */
-  uint32 elem_size;			/* element size in bytes */
-  uint32 list_size;			/* list size in bytes */
-  uint8  copy : 1;			/* copy-on-write idiom */
-  
-  void (*list_append_front)		(LIST * this, void * elem);		/* Function pointer */
-  void (*list_append_back)		(LIST * this, void * elem);		/* Function pointer */
-  uint32 (*list_pop_back)		(LIST * this, void * elem);		/* Function pointer */
-  uint32 (*list_pop_front)		(LIST * this, void * elem);		/* Function pointer */
-
+	uint32 count;				/* count of elements in the list */
+	size_t elem_size;			/* element size in bytes */
+	size_t list_size;			/* list size in bytes */
+	uint8  copy : 1;			/* copy-on-write idiom */
 } LIST;
 
 /* Appends element to front of the list */
@@ -61,6 +54,6 @@ void list_qsort(
 LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr);
 
 /* integer sorter */
-int int_sorter( const void *first_arg, const void *second_arg );
+int int_comparator( const void *first_arg, const void *second_arg );
 
 #endif // LIST_H
