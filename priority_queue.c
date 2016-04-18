@@ -11,12 +11,14 @@
 void priority_queue_init(
 		PRIO_QUEUE * pqueue,	/* queue pointer */
 		uint32 elem_size, 		/* single element size */
-		void * comparator 		/* comparator function pointer */
+		void (* comparator) 	/* comparator function pointer */
 		) {
 	pqueue->copy 	= 0;
 	pqueue->count 	= 0;
 	pqueue->first 	= 0;
 	pqueue->last	= 0;
+	pqueue->elem_size = elem_size;
+	pqueue->comparator = comparator;
 }
 
 /* priority queue copy-on-write */
@@ -32,11 +34,23 @@ PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue) {
 }
 
 /* pop element from front */
-void * pop_front(PRIO_QUEUE * pqueue) {
-	void * data;
-	return data;
+uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem) {
+	LIST_ELEM tmp;
+	elem = pqueue->first;
+	pqueue->first = pqueue->first->next;
+	return pqueue->elem_size;
 }
 
 /* push element back to queue */
-void push_back(PRIO_QUEUE * pqueue, void * data) {}
+void priority_queue_push(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem) {
+	PRIO_QUEUE_ELEM * tmp;
+	tmp = pqueue->first;
+	while(tmp) {
+		if( tmp->priority > elem->priority ) {
+			elem->next = tmp;
+			tmp = elem;
+		}
+		tmp = tmp->next;
+	}
+}
 

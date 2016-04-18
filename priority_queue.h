@@ -12,6 +12,7 @@
 
 /* priority queue basic element */
 typedef struct _priority_queue_elem {
+	void * data;
 	uint32 priority;
 	struct _priority_queue_elem * next;
 } PRIO_QUEUE_ELEM;
@@ -31,7 +32,7 @@ typedef struct _priority_queue {
 void priority_queue_init(
 		PRIO_QUEUE * pqueue,	/* queue pointer */
 		uint32 elem_size, 		/* single element size */
-		void * comparator 		/* comparator function pointer */
+		void (*comparator) 		/* comparator function pointer */
 );
 
 /* priority queue copy-on-write */
@@ -41,9 +42,9 @@ PRIO_QUEUE * priority_queue_copy(PRIO_QUEUE * pqueue);
 PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue);
 
 /* pop element from front */
-void * pop_front(PRIO_QUEUE * pqueue);
+uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem);
 
 /* push element back to queue */
-void push_back(PRIO_QUEUE * pqueue, void * data);
+void priority_queue_push(PRIO_QUEUE * pqueue, void * data);
 
 #endif /* PRIORITY_QUEUE_H_ */
