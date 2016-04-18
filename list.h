@@ -50,6 +50,17 @@ void list_init_copy(LIST * this, LIST * list);
 void list_reverse(LIST * this);
 
 /* sort elements in the list */
-void list_sort(LIST * this, void (*comparator));
+void list_qsort(
+		LIST * this,									/* pointer to structure */
+		size_t elem_count,								/* element quantity */
+		size_t elem_size,								/* single element size */
+        int (*comparator)(const void *, const void *)	/* comparator function pointer */
+		);
+
+/* partitioner for quick sort */
+LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr);
+
+/* integer sorter */
+int int_sorter( const void *first_arg, const void *second_arg );
 
 #endif // LIST_H
