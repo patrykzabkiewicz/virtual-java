@@ -1,7 +1,6 @@
 
 #include "smart_pointer.h"
 #include "smart_pointer_p.h"
-#include "stdlib.h"
 
 void smrt_ptr_init(SMRT_PTR * this,const SMRT_PTR * ptr, uint32 elem_size) {
 	this->__ptr = ptr;
