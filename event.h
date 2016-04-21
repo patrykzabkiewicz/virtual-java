@@ -21,6 +21,6 @@ typedef struct _event {
 	uint8 end[1] = {0};
 } EVENT;
 
-void event_init(EVENT * this);
+void event_init(EVENT * e);
 
 #endif // EVENT_H
