@@ -24,12 +24,21 @@ void priority_queue_init(
 /* priority queue copy-on-write */
 PRIO_QUEUE * priority_queue_copy(PRIO_QUEUE * pqueue) {
 	PRIO_QUEUE * tmp;
+	tmp = pqueue;
+	tmp->copy = 1;
 	return tmp;
 }
 
 /* hard copy of whole queue */
 PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue) {
 	PRIO_QUEUE * tmp;
+	PRIO_QUEUE_ELEM * tmp_elem;
+	tmp_elem = pqueue->first;
+	while(tmp_elem) {
+		tmp->first = malloc(sizeof(PRIO_QUEUE_ELEM));
+		memcpy(tmp->first, tmp_elem, sizeof(PRIO_QUEUE_ELEM));
+		tmp_elem = tmp_elem->next;
+	}
 	return tmp;
 }
 
