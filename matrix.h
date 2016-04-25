@@ -18,7 +18,24 @@ typedef struct _matrix {
 	void * const data;			/* data pointer */
 } MATRIX;
 
-void * const matrix_init(MATRIX * const matrix);
+/* initiaties the matrix and returns pointer to it */
+void * const matrix_init(MATRIX * const A);
 
+MATRIX * const matrix_add(MATRIX * const A, MATRIX * const B);
+
+MATRIX * const matrix_add_factor(MATRIX * const A, uint32 factor);
+
+MATRIX * const matrix_sub(MATRIX * const A, MATRIX * const B);
+
+MATRIX * const matrix_sub_factor(MATRIX * const A, uint32 factor);
+
+/* multiply matrix by scalar */
+MATRIX * const matrix_multiply_factor(MATRIX * const A, uint32 factor);
+
+/* multiply two matrices */
+MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B);
+
+/* transpose matrix */
+MATRIX * const matrix_transpose(MATRIX * const A);
 
 #endif /* MATRIX_H_ */
