@@ -3,13 +3,18 @@
 
 /* constructor for event dispatcher */
 void event_dispatcher_init(EVENT_DISPATCHER * const event_dispatcher) {
-	queue_init(event_dispatcher->dumpster);
-	list_init(event_dispatcher->events_lists);
+	event_dispatcher->dumpster = malloc(sizeof(QUEUE));
+	queue_init(event_dispatcher->dumpster, sizeof(EVENT));
+
+	event_dispatcher->list_recivers = malloc(sizeof(LIST));
+	list_init(event_dispatcher->list_recivers);
+
+	event_dispatcher->events = malloc(sizeof(QUEUE));
 	queue_init(event_dispatcher->events, sizeof(EVENT));
 }
 
 /* adds event to be dispatched */
-void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * event) {
+void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * const event) {
 	QUEUE_ELEM * qe;
 	qe = malloc(sizeof(QUEUE_ELEM));
 	qe->data = event;
@@ -18,7 +23,7 @@ void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * e
 
 /* adds customer to events loop */
 void event_dispatcher_add_customer_event_loop(EVENT_DISPATCHER * const event_dispatcher) {
-
+	list_append_back(event_dispatcher->list_recivers);
 }
 
 /* worker thread for dispatching */

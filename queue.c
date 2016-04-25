@@ -21,7 +21,4 @@ void queue_init(QUEUE * queue, uint32 elem_size) {
 	queue->copy = 0;
 	queue->elem_size = elem_size;
 	queue->count = 0;
-
-	queue->queue_append_back = &queue_append_back;
-	queue->queue_pop_front = &queue_pop_front;
 }
