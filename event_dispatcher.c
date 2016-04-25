@@ -3,8 +3,13 @@
 
 /* constructor for event dispatcher */
 void event_dispatcher_init(EVENT_DISPATCHER * const event_dispatcher) {
-	queue_init(event_dispatcher->dumpster);
+	event_dispatcher->dumpster = malloc(sizeof(QUEUE));
+	queue_init(event_dispatcher->dumpster, sizeof(EVENT));
+
+	event_dispatcher->list_recivers = malloc(sizeof(LIST));
 	list_init(event_dispatcher->list_recivers);
+
+	event_dispatcher->events = malloc(sizeof(QUEUE));
 	queue_init(event_dispatcher->events, sizeof(EVENT));
 }
 
