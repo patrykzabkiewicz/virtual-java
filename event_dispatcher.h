@@ -10,7 +10,7 @@
 
 typedef struct _event_dispatcher {
 	QUEUE 	* events;			/* events to be dispatched */
-	LIST 	* events_lists;		/* list of receivers */
+	LIST 	* list_recivers;	/* list of receivers */
 	QUEUE 	* dumpster;			/* dumpster of events that can't be dispatched */
 } EVENT_DISPATCHER;
 

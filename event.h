@@ -11,13 +11,15 @@
 #define EVENT_H
 
 #include "typedef.h"
+#include "time.h"
 
 typedef struct _event {
 	uint32 id;
 	uint32 date;
 	uint32 type;
 	uint32 data_lenght;
-	uint8 * data;
+	time_t datetime;
+	void * const data;
 	uint8 end[1] = {0};
 } EVENT;
 

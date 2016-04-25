@@ -4,7 +4,7 @@
 /* constructor for event dispatcher */
 void event_dispatcher_init(EVENT_DISPATCHER * const event_dispatcher) {
 	queue_init(event_dispatcher->dumpster);
-	list_init(event_dispatcher->events_lists);
+	list_init(event_dispatcher->list_recivers);
 	queue_init(event_dispatcher->events, sizeof(EVENT));
 }
 
@@ -18,7 +18,7 @@ void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * e
 
 /* adds customer to events loop */
 void event_dispatcher_add_customer_event_loop(EVENT_DISPATCHER * const event_dispatcher) {
-
+	list_append_back(event_dispatcher->list_recivers);
 }
 
 /* worker thread for dispatching */
