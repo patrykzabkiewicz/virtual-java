@@ -9,7 +9,7 @@ void event_dispatcher_init(EVENT_DISPATCHER * const event_dispatcher) {
 }
 
 /* adds event to be dispatched */
-void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * event) {
+void event_dispatcher_event(EVENT_DISPATCHER * const event_dispatcher, EVENT * const event) {
 	QUEUE_ELEM * qe;
 	qe = malloc(sizeof(QUEUE_ELEM));
 	qe->data = event;
