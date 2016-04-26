@@ -6,34 +6,40 @@
  *
 */
 
-namespace dfrm {
+#ifndef GRAPH_H_
+#define GRAPH_H_
 
-template <typename T>
-struct graph {
-	int v_count;
-	int e_count;
-	list<vertex<T>> *verticies;
+#include "typedef.h"
+#include "list.h"
 
-	graph() {
-		this->verticies = new list<vertex>(); 
-	}
+static uint32 vrtx_id = 0;
 
-	~graph() {
-		delete this->verticies;
-	}
+typedef struct _vrtx {
+	uint32 id;			/* number of the vertex */
+	void * data;		/* data hold in the vertex */
+	LIST * next; 		/* neighbors */
+} VRTX;
 
-}
+typedef struct _graph {
+	uint32 v_count;		/* amount of hold vertices */
+	uint32 data_size;	/* size of the data in bytes */
+	LIST * verticies;	/* list of verticies */
+} GRAPH;
+
+/* graph initialization */
+GRAPH * const graph_init(GRAPH * g, uint32 elem_size);
+
+/* remove vertex from the graph */
+void graph_remove_vrtx(GRAPH * const g, VRTX * const v);
+
+/* add new vertex to graph */
+void graph_add_vrtx(GRAPH * const g, VRTX * const v);
+
+/* add neighbor of vertex ve to vertex vi */
+void graph_add_edge(VRTX * const vi, VRTX * const ve);
+
+/* remove neighbor ve of vertex vi */
+void graph_add_edge(VRTX * const vi, VRTX * const ve);
 
 
-template <typename T>
-void addVertex(graph<T> *g, vertex<T> *v) {
-	push_back(g->verticies, v);
-}
-
-
-template <typename T>
-void addEdge(vertex<T> *vs, vertex<T> *ve) {
-	push_back(vs->edges,ve);
-}
-
-}
+#endif // GRAPH_H_
