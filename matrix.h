@@ -38,4 +38,7 @@ MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B);
 /* transpose matrix */
 MATRIX * const matrix_transpose(MATRIX * const A);
 
+/* calculates determinant of given matrix */
+uint32 matrix_determinant();
+
 #endif /* MATRIX_H_ */
