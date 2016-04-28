@@ -18,11 +18,21 @@
 /* Channel describing structure */
 typedef struct _channel {
 	uint8 * D;
-	int32 user_count;
-	int32 current_readers;
+	uint8 msg_size;
+	int32 count;
+	int32 num_recivers;
+	uint8 chnl_size[CHNL_SIZE];
+	uint8 chnl[0] = { 0 };
 } CHNL;
 
-void attachChnl(uint8 * const CHNL, );
+
+/* channel create */
+void createChnl(uint8 * const CHNL, uint8 msg_size);
+
+
+/* attache listener to a channel */
+void attachChnl(uint8 * const CHNL, void * listener);
+
 
 /* Reads date from the channel */
 void * readChnl(uint8 * CHNL, uint8 size);

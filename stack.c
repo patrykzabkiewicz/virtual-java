@@ -53,11 +53,13 @@ void push_stack(STACK * stack, void * data) {
 
 /* pop element from stack */
 void * pop_stack(STACK * stack) {
+	if(stack->first) {
 	STACK_ELEM * tmp;
 	tmp = stack->first;
 	free(stack->first);
 	stack->first = tmp->next;
 	return tmp->data;
+	}
 }
 
 
