@@ -10,6 +10,7 @@
 #define JMP 0x08  // unconditional jump
 #define JME 0x09  // if equals jump
 #define JMN 0x10  // if not equals jump
-
+#define POP 0x11  // pop on stack
+#define PUS 0x12  // push on stack
 
 #endif // INSTRUCTION_SET_H_

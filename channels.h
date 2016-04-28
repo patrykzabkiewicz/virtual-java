@@ -22,9 +22,10 @@ typedef struct _channel {
 	int32 current_readers;
 } CHNL;
 
+void attachChnl(uint8 * const CHNL, );
 
 /* Reads date from the channel */
-void readChnl(uint8 * CHNL, uint8 size);
+void * readChnl(uint8 * CHNL, uint8 size);
 
 
 /* Writes date onto a channel */
