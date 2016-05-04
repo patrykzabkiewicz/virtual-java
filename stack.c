@@ -11,8 +11,23 @@
 void stack_init(STACK * stack, uint32 elem_size) {
 	stack->copy = 0;
 	stack->elem_size = elem_size;
-	stack->first = 0;
+	stack->first = nullptr;
+	stack->last = nullptr;
 	stack->count = 0;
+	stack->max_size = 0;
+}
+
+void stack_init_maxsize(
+		STACK * stack,
+		uint32 elem_size,
+		uint32 max_size
+		) {
+	stack->copy = 0;
+	stack->elem_size = elem_size;
+	stack->first = nullptr;
+	stack->last = nullptr;
+	stack->count = 0;
+	stack->max_size = max_size;
 }
 
 /* copies the stack and returns the pointer to new structure */
@@ -45,9 +60,7 @@ STACK * stack_hard_copy(STACK * stack) {
 }
 
 /* push element to stack */
-void push_stack(STACK * stack, void * data) {
-	STACK_ELEM * elem;
-	elem->data = data;
+void push_stack(STACK * stack, STACK_ELEM * data) {
 	stack->first->next = elem;
 }
 

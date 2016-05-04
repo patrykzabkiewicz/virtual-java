@@ -9,6 +9,7 @@
 #define STACK_H_
 
 #include "typedef.h"
+#include "nullptr.h"
 
 typedef struct _stack_elem {
 	void * data;
@@ -17,13 +18,21 @@ typedef struct _stack_elem {
 
 typedef struct _stack {
 	STACK_ELEM * first;
+	STACK_ELEM * last;
 	uint32 elem_size;
 	uint32 count;
 	uint8 copy : 1;		/* copy-on-write idiom */
+	uint32 max_size;
 } STACK;
 
 /* initiates the stack structure */
-void stack_init(STACK * stack);
+void stack_init(STACK * stack, uint32 elem_size);
+
+void stack_init_maxsize(
+		STACK * stack,
+		uint32 elem_size,
+		uint32 max_size
+		);
 
 /* copies the stack and returns the pointer to new structure */
 STACK * stack_copy(STACK * stack);

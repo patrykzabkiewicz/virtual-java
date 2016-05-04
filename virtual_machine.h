@@ -13,6 +13,7 @@
 #include "typedef.h"
 #include "queue.h"
 #include "stack.h"
+#include "nullptr.h"
 
 /* Structure for machine language instructions */
 typedef struct _instr {
@@ -37,6 +38,8 @@ typedef struct _cpu {
 	uint8 MINUS : 1;		/* Result is negative */
 } PX_CPU;
 
+inline void px_cpu_init(PX_CPU * px);
+
 /* Stack simulator structure */
 typedef struct _stack {
 	uint8 count;
@@ -44,10 +47,14 @@ typedef struct _stack {
 	uint8 * first;
 } PX_STACK;
 
+inline void px_stack_init(PX_STACK * sx);
+
 /* Machine structure */
 typedef struct _machine {
 	PX_CPU * cpu;
+	PX_CPU * cpu_cp; /* copy of the cpu state for try catch blocks */
 	PX_STACK * stack;
+	PX_STACK * stack_cp; /* copy of the stack state for try catch blocks */
 
 	QUEUE * instr_queue; /* instruction queue */
 } MACHINE;
@@ -59,6 +66,6 @@ typedef struct _machines_struct {
 } MACHINES_STRUCT;
 
 /* initialization of virtual machines */
-int virtual_machine_init(int argc, char **argv);
+void virtual_machine_init(MACHINE * m);
 
 #endif // VIRTUAL_MACHINE_H
