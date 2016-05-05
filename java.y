@@ -21,16 +21,76 @@ int		sym['z'-'a'+1];
 
 %token<iValue>	INTEGER
 %token<sIndex>	VARIABLE
-%token WHILE IF DO
+%token WHILE 
+%token IF 
+%token DO
+%token COMMENTSTART 
+%token COMMENTSTOP 
+%token INLINECOMMENT
+%token TRUE 
+%token FALSE 
+%token NILL
+%token BSTRACT 
+%token CONTINUE 
+%token FOR 
+%token NEW 
+%token SWITCH 
+%token ASSERT
+%token DEFAULT 
+%token GOTO 
+%token PACKAGE 
+%token SYNCH 
+%token BOOL
+%token PRIVATE 
+%token THIS 
+%token BREAK 
+%token DOUBLE 
+%token IMPLMENTS
+%token PROTECTED 
+%token THROW 
+%token BYTE 
+%token ELSE 
+%token IMPORT
+%token PUBLIC 
+%token THROWS 
+%token CASE 
+%token ENUM 
+%token INSTANCEOF
+%token RETURN 
+%token TRANSIENT 
+%token CATCH 
+%token EXTENDS 
+%token INT
+%token SHORT 
+%token TRY 
+%token CHAR 
+%token FINAL 
+%token INTERFACE 
+%token STATIC 
+%token VOID
+%token CLASS 
+%token FINALLY 
+%token LONG 
+%token STRCTFP 
+%token VOLATILE 
+%token CONST
+%token FLOAT 
+%token NATIVE 
+%token SUPER 
 %nonassoc IFX
 %nonassoc ELSE
 
-%left 
 %left GE LE EQ NE '>' '<'
+%left PLUSEQ MINUSEQ MILTIPLYEQ DIVEQ
+%left PERCENTEQ AMPEQ POWEREQ DASHEQ
+%left SHIFTLEFTEQ SHIFTRIGHTEQ UNSIGNSHIFTRIGHTEQ
+%left PLUSPLUS MINUSMINUS
+%left SHIFTRIGHT SHIFTLEFT UNSIGNEDSHIFTRIGHT
+%left LOGICAND LOGICOR
 %left '+' '-'
 %left '*' '/' 
 %left '^'
-%nonassoc UMINUS
+%right '!' '~'
 
 %type<nPtr> stmt expr stmt_list
 

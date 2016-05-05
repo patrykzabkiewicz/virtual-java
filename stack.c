@@ -41,7 +41,12 @@ STACK * stack_copy(STACK * stack) {
 /* makes a hard copy of the stack */
 STACK * stack_hard_copy(STACK * stack) {
 	STACK * tmp;
+	tmp = (STACK *) malloc(sizeof(STACK));
+	stack_init(tmp);
+
 	STACK_ELEM * org_tmp, * dest_tmp;
+	org_tmp = (STACK_ELEM *) malloc(sizeof(STACK_ELEM));
+	dest_tmp = (STACK_ELEM *) malloc(sizeof(STACK_ELEM));
 
 	tmp->copy = 0;
 	tmp->count = stack->count;
@@ -61,18 +66,19 @@ STACK * stack_hard_copy(STACK * stack) {
 
 /* push element to stack */
 void push_stack(STACK * stack, STACK_ELEM * data) {
-	stack->first->next = elem;
+	stack->first->next = data;
 }
 
 /* pop element from stack */
 void * pop_stack(STACK * stack) {
 	if(stack->first) {
-	STACK_ELEM * tmp;
-	tmp = stack->first;
-	free(stack->first);
-	stack->first = tmp->next;
-	return tmp->data;
+		STACK_ELEM * tmp;
+		tmp = stack->first;
+		free(stack->first);
+		stack->first = tmp->next;
+		return tmp->data;
 	}
+	return nullptr;
 }
 
 

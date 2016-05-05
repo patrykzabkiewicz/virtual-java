@@ -6,19 +6,30 @@
 
 %%
 
-[a-z]			{
+[a-zA-Z]		{
 				yylval.sIndex= yytext[0] - 'a';
-
 				return VARIABLE;
 			}
 
 [0-9]+			{
 				yylval.iValue= atoi( yytext );
-
 				return INTEGER;
 			}
 
-[!~-()<>=+*^/;{}.%&?:\[\]]	{
+u[a-zA-Z]		{
+				yylval.sIndex= yytext[0] - 'a';
+				return UNICODE;
+			}
+
+0x[0-9A-Za-z]+		{
+				yylval.iValue= atoi( yytext );
+				return INTEGER
+			}
+
+[]
+
+
+[!~-()<>=+*^/;{},.@%&?:\[\]]	{
 				return yytext[0];
 				}
 
@@ -45,6 +56,9 @@
 ">>>"			{ return UNSIGNEDSHIFTRIGHT; }
 "&&"			{ return LOGICAND; }
 "||"			{ return LOGICOR; }
+
+"..."			{ return THREEDOT; }
+"::"			{ return DOUBLECOLON; }
 
 "/*"			{ return COMMENTSTART; }
 "*/"			{ return COMMENTSTOP; }
