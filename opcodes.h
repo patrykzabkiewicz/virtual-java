@@ -208,34 +208,34 @@
 #define wide		0xc4
 //(no name)		cb-fd
 
-#define BREAKPOINT 	0x00 // = 202;
-#define LDC_QUICK = 203;
-#define LDC_W_QUICK = 204;
-#define LDC2_W_QUICK = 205;
-#define GETFIELD_QUICK = 206;
-#define PUTFIELD_QUICK = 207;
-#define GETFIELD2_QUICK = 208;
-#define PUTFIELD2_QUICK = 209;
-#define GETSTATIC_QUICK = 210;
-#define PUTSTATIC_QUICK = 211;
-#define GETSTATIC2_QUICK = 212;
-#define PUTSTATIC2_QUICK = 213;
-#define INVOKEVIRTUAL_QUICK = 214;
-#define INVOKENONVIRTUAL_QUICK = 215;
-#define INVOKESUPER_QUICK = 216;
-#define INVOKESTATIC_QUICK = 217;
-#define INVOKEINTERFACE_QUICK = 218;
-#define INVOKEVIRTUALOBJECT_QUICK = 219;
-#define NEW_QUICK = 221;
-#define ANEWARRAY_QUICK = 222;
-#define MULTIANEWARRAY_QUICK = 223;
-#define CHECKCAST_QUICK = 224;
-#define INSTANCEOF_QUICK = 225;
-#define INVOKEVIRTUAL_QUICK_W = 226;
-#define GETFIELD_QUICK_W = 227;
-#define PUTFIELD_QUICK_W = 228;
-#define IMPDEP1 = 254;
-#define IMPDEP2 = 255;
+#define BREAKPOINT 	                0xCA // = 202;
+#define LDC_QUICK                   0xCB
+#define LDC_W_QUICK                 0xCC
+#define LDC2_W_QUICK                0xCD
+#define GETFIELD_QUICK              0xCE
+#define PUTFIELD_QUICK              0xCF
+#define GETFIELD2_QUICK             0xD0
+#define PUTFIELD2_QUICK             0xD1
+#define GETSTATIC_QUICK             0xD2
+#define PUTSTATIC_QUICK             0xD3
+#define GETSTATIC2_QUICK            0xD4
+#define PUTSTATIC2_QUICK            0xD5
+#define INVOKEVIRTUAL_QUICK         0xD6
+#define INVOKENONVIRTUAL_QUICK      0xD7
+#define INVOKESUPER_QUICK           0xD8
+#define INVOKESTATIC_QUICK          0xD9
+#define INVOKEINTERFACE_QUICK       0xDA
+#define INVOKEVIRTUALOBJECT_QUICK   0xDB
+#define NEW_QUICK                   0xDD // = 221
+#define ANEWARRAY_QUICK             0xDE
+#define MULTIANEWARRAY_QUICK        0xDF
+#define CHECKCAST_QUICK             0xE0
+#define INSTANCEOF_QUICK            0xE1
+#define INVOKEVIRTUAL_QUICK_W       0xE2
+#define GETFIELD_QUICK_W            0xE3
+#define PUTFIELD_QUICK_W            0xE4
+#define IMPDEP1                     0xFE
+#define IMPDEP2                     0xFF
 
 #endif // OPCODES_H_
 
