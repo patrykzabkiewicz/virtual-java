@@ -50,6 +50,7 @@
 */
 
 #include <stdio.h>
+#include "parser.h"
 
 /*
 # class file interpretation and loading
@@ -63,6 +64,7 @@
 int main(int argc, char *argv[]) {
 
 	// load the class file
+	parser_init();
 
 	// starting the main interprer process
 
