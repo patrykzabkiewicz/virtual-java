@@ -197,7 +197,7 @@ typedef struct Class_File_Format {
 } CLASS;
 
 
-void load_class(int8 * name);
+CLASS * load_class(int8 * name);
 
 
 #endif // PARSER_H_

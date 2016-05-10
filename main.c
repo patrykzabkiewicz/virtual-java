@@ -63,8 +63,13 @@
 
 int main(int argc, char *argv[]) {
 
+	if(argc < 2) {
+		printf("no class file name given");
+		return -1;
+	}
+
 	// load the class file
-	parser_init();
+	load_class();
 
 	// starting the main interprer process
 
