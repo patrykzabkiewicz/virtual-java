@@ -33,3 +33,7 @@ inline void px_stack_init(PX_STACK * sx) {
 
 }
 
+void virtual_machine_exec(MACHINE * m, CLASS * cl) {
+	queue_append_back(m->instr_queue, cl);
+}
+

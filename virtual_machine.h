@@ -67,5 +67,6 @@ typedef struct _machines_struct {
 
 /* initialization of virtual machines */
 void virtual_machine_init(MACHINE * m);
+void virtual_machine_exec(MACHINE * m, CLASS * cl);
 
 #endif // VIRTUAL_MACHINE_H

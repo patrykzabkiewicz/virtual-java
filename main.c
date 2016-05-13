@@ -51,6 +51,8 @@
 
 #include <stdio.h>
 #include "parser.h"
+#include "list.h"
+#include "virtual_machine.h"
 
 /*
 # class file interpretation and loading
@@ -68,11 +70,30 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
-	// load the class file
-	load_class();
+	// bootstrap class loader
+	LIST * ncl_list;
+	list_init(ncl_list, sizeof(CLASS));
+
+	list_append_back();
+
+	// user defined class loader
+	CLASS * cl = load_class(argv[1]);
+
+	// link class file
+	/**
+	 *
+    Verification: ensures the correctness of the imported type
+    Preparation: allocates memory for class variables and initializing the memory to default values
+    Resolution: transforms symbolic references from the type into direct references.
+	 *
+	 *
+	 */
+	linker(cl);
 
 	// starting the main interprer process
-
+	MACHINE * vr;
+	virtual_machine_init(vr);
+	vr->
 
 	/* always return zero at the end */
 	return 0;
