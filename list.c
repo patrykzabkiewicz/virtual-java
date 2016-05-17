@@ -75,8 +75,63 @@ void list_qsort(
 	}
 }
 
+/* find element on the list and return indx position */
+uint32 list_find_indx(
+		const LIST * const this,
+		const LIST_ELEM * const elem
+		) {
+			uint32 indx = 0;
+			LIST_ELEM * cur;
+			cur = this;
+			
+			while(this->next) {
+				if( memncpy(cur->data, elem->data, this->elem_size) ) {
+					return indx;
+				}
+				cur = cur->next;
+				indx++;
+			}
+			
+			return indx;
+		}
+
+/* find element on the list and return pointer to the element */
+const LIST_ELEM * const list_find_ptr(
+		const LIST * const this,
+		const LIST_ELEM * const elem
+		) {
+			LIST_ELEM * cur;
+			cur = this;
+			
+			while(this->next) {
+				if( memncpy(cur->data, elem->data, this->elem_size) ) {
+					return cur;
+				}
+				cur = cur->next;
+			}
+			
+			return cur;
+		}
+
+/* non repeatable append to list */
+void list_append_norepeat(
+	LIST * const list, 
+	LIST_ELEM * const elem
+	) {
+		uint32 i;
+		i = list_find_indx(list, elem);
+		if(i == 0) {
+			list_append_back(list,elem);
+		}
+	}
+
 /* partitioner for quick sort */
-LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr,int(*comparator)) {
+LIST_ELEM * list_partition(
+		LIST * this, 
+		LIST_ELEM * lo_ptr, 
+		LIST_ELEM * hi_ptr,
+		int(*comparator)
+	) {
 	LIST_ELEM * pivot_ptr;
 	LIST_ELEM * tmp;
 	LIST_ELEM * i;

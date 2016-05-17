@@ -66,7 +66,7 @@ void list_insert_before(
 		);
 
 /* find element on the list and return indx position */
-uint32 list_find_int(
+uint32 list_find_indx(
 		const LIST * const this,
 		const LIST_ELEM * const elem
 		);
@@ -90,6 +90,13 @@ void list_qsort(
 		size_t elem_size,								/* single element size */
         int (*comparator)(const void *, const void *)	/* comparator function pointer */
 		);
+
+/* non repeatable append to list */
+void list_append_norepeat(
+	LIST * const list, 
+	LIST_ELEM * const elem
+	);
+
 
 /* partitioner for quick sort */
 LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr);
