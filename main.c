@@ -63,6 +63,19 @@
 
 */
 
+#define NCC 2
+
+struct {
+	char name[25];
+	char filename[255];
+	char path[25];
+} ncs[NCC];
+
+ncs = {
+	{ "int" , "int" , "int"},
+	{ "string", "string", "string" }
+}
+
 int main(int argc, char *argv[]) {
 
 	if(argc < 2) {
@@ -71,29 +84,29 @@ int main(int argc, char *argv[]) {
 	}
 
 	// bootstrap class loader
-	LIST * ncl_list;
-	list_init(ncl_list, sizeof(CLASS));
+	stack_init(vm->native_ms, sizeof(CLASS));
 
-	list_append_back();
+	// should be threaded loading
+	// NCC = native class count
+	for(i = 0; i < NCC; i++) {
+		CLASS * clc = load_class(ncs[i]);
+		stack_push(ncl_list,clc);
+	}
 
 	// user defined class loader
 	CLASS * cl = load_class(argv[1]);
 
 	// link class file
 	/**
-	 *
-    Verification: ensures the correctness of the imported type
-    Preparation: allocates memory for class variables and initializing the memory to default values
-    Resolution: transforms symbolic references from the type into direct references.
-	 *
-	 *
+	 *	Verification: ensures the correctness of the imported type
+	 *	Preparation: allocates memory for class variables and initializing the memory to default values
+	 *	Resolution: transforms symbolic references from the type into direct references.
 	 */
 	linker(cl);
 
 	// starting the main interprer process
-	MACHINE * vr;
-	virtual_machine_init(vr);
-	vr->
+	MACHINE * vm;
+	virtual_machine_init(vm);
 
 	/* always return zero at the end */
 	return 0;

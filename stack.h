@@ -18,11 +18,10 @@ typedef struct _stack_elem {
 
 typedef struct _stack {
 	STACK_ELEM * first;
-	STACK_ELEM * last;
 	uint32 elem_size;
-	uint32 count;
-	uint8 copy : 1;		/* copy-on-write idiom */
-	uint32 max_size;
+	uint32 count;			/* number of elements on stack */
+	uint8 copy : 1;			/* copy-on-write idiom */
+	uint32 max_size;		/* max size in bytes */
 } STACK;
 
 /* initiates the stack structure */

@@ -51,12 +51,13 @@ inline void px_stack_init(PX_STACK * sx);
 
 /* Machine structure */
 typedef struct _machine {
-	PX_CPU * cpu;
-	PX_CPU * cpu_cp; /* copy of the cpu state for try catch blocks */
-	PX_STACK * stack;
-	PX_STACK * stack_cp; /* copy of the stack state for try catch blocks */
+	PX_CPU * cpu;			/* pc registers */
+	PX_STACK * heap;		/* main stack */
+	STACK * native_ms;		/* native method stack */
+	STACK * jvm_ms;			/* jvm method stack */
 
-	QUEUE * instr_queue; /* instruction queue */
+	/* execution engine */
+	QUEUE * instr_queue; /* queue of opcodes */
 } MACHINE;
 
 /* Structure that holds all the virtual machines abstraction */
