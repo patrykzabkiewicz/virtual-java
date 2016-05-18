@@ -1,6 +1,8 @@
 /*
  * heap.h
  *
+ * this structure serves as both heap and tree
+ *
  *  Created on: 17 maj 2016
  *      Author: zabkiewp
  */
@@ -11,25 +13,45 @@
 #include "typedef.h"
 #include "bool.h"
 
-typedef struct _heap_elem {
-	void * data;
-	struct _heap_elem * left;
-	struct _heap_elem * right;
-	uint32 color_br; /* color flag for black-red tree implementation */
-} HEAP_ELEM;
-
-
 typedef struct _heap {
-	HEAP_ELEM * root;
 	uint32 elem_size;
 	uint32 count;			/* number of elements on stack */
+	void * root[0];	/* general hack for custom sized array */
 } HEAP;
 
-void heap_init(HEAP * const h);
-void heap_insert(HEAP * const h, HEAP_ELEM * const he);
+/* init general heap */
+void heap_init(HEAP * const h, uint32 elem_size);
+
+/* deallocate heap */
+void heap_destroy(HEAP * const h);
+
+/**
+ * inserts element at the top of heap
+ */
+void heap_insert_head(HEAP * const h, void * const he);
+
+/**
+ * removes heap head
+ */
+void * heap_remove_head(HEAP * const h);
+
+/**
+ * inserts leaf to binary tree
+ */
+void heap_insert_binary(HEAP * const h, void * const he);
+
+/**
+ * inserts leaf to red black tree
+ */
+void heap_insert_rb(HEAP * const h, void * const he);
 
 /* returns heap element if exist */
-HEAP_ELEM * heap_find(HEAP * const h, void * data, uint32 data_size);
+void * heap_find(
+		HEAP * const h,
+		void * data,
+		uint32 data_size,
+		int (*comparator)(const void * const a, const void * const b)
+		);
 
 
 

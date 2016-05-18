@@ -12,7 +12,6 @@ void stack_init(STACK * stack, uint32 elem_size) {
 	stack->copy = 0;
 	stack->elem_size = elem_size;
 	stack->first = nullptr;
-	stack->last = nullptr;
 	stack->count = 0;
 	stack->max_size = 0;
 }
@@ -25,7 +24,6 @@ void stack_init_maxsize(
 	stack->copy = 0;
 	stack->elem_size = elem_size;
 	stack->first = nullptr;
-	stack->last = nullptr;
 	stack->count = 0;
 	stack->max_size = max_size;
 }
