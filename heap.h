@@ -9,17 +9,28 @@
 #define HEAP_H_
 
 #include "typedef.h"
+#include "bool.h"
 
-typedef struct _stack {
-	STACK_ELEM * first;
-	STACK_ELEM * last;
+typedef struct _heap_elem {
+	void * data;
+	struct _heap_elem * left;
+	struct _heap_elem * right;
+	uint32 color_br; /* color flag for black-red tree implementation */
+} HEAP_ELEM;
+
+
+typedef struct _heap {
+	HEAP_ELEM * root;
 	uint32 elem_size;
 	uint32 count;			/* number of elements on stack */
-	uint8 copy : 1;			/* copy-on-write idiom */
-	uint32 max_size;		/* max size in bytes */
-	uint32 max_elem;		/* max number of elements on stack */
-	uint32 current_size; 	/* current size in bytes */
-	uint32 boundry;			/* last byte of stack */
-} STACK;
+} HEAP;
+
+void heap_init(HEAP * const h);
+void heap_insert(HEAP * const h, HEAP_ELEM * const he);
+
+/* returns heap element if exist */
+HEAP_ELEM * heap_find(HEAP * const h, void * data, uint32 data_size);
+
+
 
 #endif /* HEAP_H_ */
