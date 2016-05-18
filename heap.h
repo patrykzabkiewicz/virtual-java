@@ -16,7 +16,7 @@
 typedef struct _heap {
 	uint32 elem_size;
 	uint32 count;			/* number of elements on stack */
-	void * root[0];	/* general hack for custom sized array */
+	void **root;	/* general hack for custom sized array */
 } HEAP;
 
 /* init general heap */
@@ -39,6 +39,12 @@ void * heap_remove_head(HEAP * const h);
  * inserts leaf to binary tree
  */
 void heap_insert_binary(HEAP * const h, void * const he);
+
+/* depth first search */
+void dfs();
+
+/* return path from given point to root */
+int * path();
 
 /**
  * inserts leaf to red black tree

@@ -8,6 +8,9 @@ void heap_init(HEAP * const h, uint32 elem_size) {
 }
 
 
+// n2+1 = L
+// n2+2 = R
+
 /**
  * inserts element at the top of heap
  */
@@ -29,7 +32,7 @@ void heap_remove_head(HEAP * const h) {
  * inserts leaf to binary tree
  */
 void heap_insert_binary(HEAP * const h, void * const he) {
-
+	
 }
 
 /**
