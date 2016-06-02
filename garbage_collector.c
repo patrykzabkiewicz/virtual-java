@@ -29,7 +29,14 @@ void garbage_worker() {
 	}
 }
 
-/* collect garbage */
+/** 
+ * garbage collector has three stages of collection
+ *
+ * 1. collects objects that has been created only once
+ * 2. if it finds the objects that were here 
+ *
+ * collects garbage 
+ */
 void garbage_collect(QUEUE * const gb) {
 	uint32 bytes;
 	void * garbage;
