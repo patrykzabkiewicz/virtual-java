@@ -11,7 +11,7 @@
 #define true 1
 #define false 0
 
-typedef struct _Bool {
+typedef struct _bool {
 	unsigned char val : 1;
 } __bool;
 

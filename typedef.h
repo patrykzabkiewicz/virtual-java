@@ -1,6 +1,8 @@
 #ifndef TYPEDEF_H
 #define TYPEDEF_H
 
+#include <unistd.h>
+
 #define uint8 unsigned char
 #define uint16 unsigned short
 #define uint32 unsigned int
@@ -10,8 +12,6 @@
 #define int16 short
 #define int32 int
 #define int64 long long
-
-#define size_t unsigned int
 
 #define bool int
 #define true 1

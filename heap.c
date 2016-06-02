@@ -15,7 +15,7 @@ void heap_init(HEAP * const h, uint32 elem_size) {
  * inserts element at the top of heap
  */
 void heap_insert_head(HEAP * const h, void * const he) {
-	h->root[h->count] = he;
+	memcpy(h->root + h->count, he, h->elem_size);
 	h->count++;
 }
 

@@ -11,7 +11,7 @@ uint32 createChnl(uint32 flags)
 }
 
 /* destroys channel */
-bool destroyChnl(uint32 chid)
+uint32 destroyChnl(uint32 chid)
 {
     // free the memory
     free(channels[chid]->msg);
@@ -20,7 +20,7 @@ bool destroyChnl(uint32 chid)
 }
 
 /* Reads date from the channel */
-bool MsgReceive( uint32 chid,
+uint32 MsgReceive( uint32 chid,
                 void * msg,
                 uint32 bytes,
                 struct _msg_info * info )
@@ -33,7 +33,7 @@ bool MsgReceive( uint32 chid,
 
 
 /* Writes date onto a channel */
-bool MsgSend( uint32 coid,
+uint32 MsgSend( uint32 coid,
              const void * const smsg,
              uint32 sbytes,
              void * const rmsg,

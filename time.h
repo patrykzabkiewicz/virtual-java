@@ -9,7 +9,7 @@
 #define TIME_H_
 
 
-typedef struct tm {
+typedef struct _tm {
    int tm_sec;         /* seconds,  range 0 to 59          */
    int tm_min;         /* minutes, range 0 to 59           */
    int tm_hour;        /* hours, range 0 to 23             */
@@ -19,7 +19,7 @@ typedef struct tm {
    int tm_wday;        /* day of the week, range 0 to 6    */
    int tm_yday;        /* day in the year, range 0 to 365  */
    int tm_isdst;       /* daylight saving time             */
-} time_t;
+} lgtime_t;
 
 
 #endif /* TIME_H_ */

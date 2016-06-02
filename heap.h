@@ -12,11 +12,12 @@
 
 #include "typedef.h"
 #include "bool.h"
+#include "nullptr.h"
 
 typedef struct _heap {
 	uint32 elem_size;
 	uint32 count;			/* number of elements on stack */
-	void **root;	/* general hack for custom sized array */
+	void *root;				/* general hack for custom sized array */
 } HEAP;
 
 /* init general heap */

@@ -19,10 +19,10 @@ typedef struct _event {
 	uint32 type;
 	uint32 data_lenght;
 	time_t datetime;
-	void * const data;
-	uint8 end[1] = {0};
+	void * data;
+	uint8 end[1];
 } EVENT;
 
-void event_init(EVENT * e);
+void event_init(EVENT * const e);
 
 #endif // EVENT_H

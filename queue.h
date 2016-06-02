@@ -4,9 +4,9 @@
 #include "typedef.h"
 
 /* Single list element */
-typedef struct _list_elem {
+typedef struct _queue_elem {
   void * data;		/* Element data */
-  struct _list_elem * next;
+  struct _queue_elem * next;
 } QUEUE_ELEM;
 
 
@@ -17,10 +17,6 @@ typedef struct _queue {
   uint32 count;
   uint32 elem_size;
   uint8  copy : 1;			/* copy-on-write idiom */
-
-  void * (*queue_append_back)	(LIST * list, void * elem);		/* Function pointer */
-  uint32 (*queue_pop_front)		(LIST * list, void * elem);		/* Function pointer */
-
 } QUEUE;
 
 

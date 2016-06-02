@@ -41,7 +41,7 @@ struct _msg_info {        /* _msg_info    _server_info */
 typedef struct _MSG {
         int type;
         int len;
-        char body[0] = { 0 }; // null terminated
+        char body[0]; // null terminated
 } MSG;
 
 
@@ -49,7 +49,7 @@ typedef struct _MSG {
 typedef struct _channel {
 	void * msg;					/* channel size */
 	uint32 cur_bytes;
-	uint8 chnl[0] = { 0 };			/* null byte */
+	uint8 chnl[0];			/* null byte */
 } CHNL;
 
 static CHNL * channels[10];

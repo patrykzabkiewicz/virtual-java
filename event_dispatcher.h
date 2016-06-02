@@ -9,9 +9,9 @@
 #define EVENT_DISPATCH_INTERVAL 10
 
 typedef struct _event_dispatcher {
-	QUEUE 	* const events;				/* events to be dispatched */
-	LIST 	* const list_recivers;		/* list of receivers */
-	QUEUE 	* const dumpster;			/* dumpster of events that can't be dispatched */
+	QUEUE 	* events;				/* events to be dispatched */
+	LIST 	* list_recivers;		/* list of receivers */
+	QUEUE 	* dumpster;				/* dumpster of events that can't be dispatched */
 } EVENT_DISPATCHER;
 
 /* constructor for event dispatcher */
