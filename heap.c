@@ -32,7 +32,11 @@ void heap_remove_head(HEAP * const h) {
  * inserts leaf to binary tree
  */
 void heap_insert_binary(HEAP * const h, void * const he) {
-	
+	// while heap still has elements in branches
+	while(heap) {
+		// compare left and right
+		if() {}
+	}
 }
 
 /**

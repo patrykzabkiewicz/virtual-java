@@ -39,13 +39,25 @@ void * heap_remove_head(HEAP * const h);
 /**
  * inserts leaf to binary tree
  */
-void heap_insert_binary(HEAP * const h, void * const he);
+void heap_insert_binary(HEAP * const h, void * const item);
 
 /* depth first search */
-void dfs();
+void heap_dfs(HEAP * const h, void * const item);
 
 /* return path from given point to root */
-int * path();
+int * heap_path();
+
+/* swap two elements in a heap/tree */
+void heap_swap(HEAP * const h, void * const A, void * const B);
+
+/* shift up the element in heap */
+void heap_shift_up(HEAP * const h, void * const A);
+
+/* shift down the element in heap */
+void heap_shift_down(HEAP * const h, void * const B);
+
+/* sort the whole binary heap */
+void heap_sort(HEAP * const h);
 
 /**
  * inserts leaf to red black tree
@@ -55,8 +67,8 @@ void heap_insert_rb(HEAP * const h, void * const he);
 /* returns heap element if exist */
 void * heap_find(
 		HEAP * const h,
-		void * data,
-		uint32 data_size,
+		void * const data,
+		uint32 const data_size,
 		int (*comparator)(const void * const a, const void * const b)
 		);
 
