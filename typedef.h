@@ -1,7 +1,11 @@
 #ifndef TYPEDEF_H
 #define TYPEDEF_H
 
+#define WINDOWS
+
+#ifndef WINDOWS
 #include <unistd.h>
+#endif
 
 #define uint8 unsigned char
 #define uint16 unsigned short

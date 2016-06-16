@@ -19,6 +19,10 @@ void* mmalloc(size_t size) {
     return ((char*)block) + sizeof(size_t);
 }
 
+void mmemcpy(void * target, void * source, int bytecount) {
+
+}
+
 void mfree(void* ptr) {
     free_block* block = (free_block*)(((char*)ptr) - sizeof(size_t));
     block->next = free_block_list_head.next;

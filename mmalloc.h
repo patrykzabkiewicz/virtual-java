@@ -13,7 +13,7 @@ static const size_t overhead = sizeof(size_t);
 static const size_t align_to = 16;
 
 void* mmalloc(size_t size);
-
+void mmemcpy(void * target, void * source, int bytecount);
 void mfree(void* ptr);
 
 #endif // MMALLOC_H

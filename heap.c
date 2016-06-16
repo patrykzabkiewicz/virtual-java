@@ -15,7 +15,7 @@ void heap_init(HEAP * const h, uint32 elem_size) {
  * inserts element at the top of heap
  */
 void heap_insert_head(HEAP * const h, void * const he) {
-	memcpy(h->root + h->count, he, h->elem_size);
+	mmemcpy((HEAP *)h->root + h->count, he, h->elem_size);
 	h->count++;
 }
 
@@ -23,7 +23,7 @@ void heap_insert_head(HEAP * const h, void * const he) {
  * removes heap head
  */
 void heap_remove_head(HEAP * const h) {
-	free(h->root[h->count]);
+	mfree((HEAP *)h->root + h->count);
 	h->count--;
 }
 
@@ -32,10 +32,16 @@ void heap_remove_head(HEAP * const h) {
  * inserts leaf to binary tree
  */
 void heap_insert_binary(HEAP * const h, void * const he) {
+	uint32 i;
 	// while heap still has elements in branches
-	while(heap) {
+	for (i = 0; i < h->count; ) {
 		// compare left and right
-		if() {}
+		if((HEAP *)h->root + i < he) {
+			i = 2 * i + 1;
+		}
+		else {
+			i = 2 * i + 2;
+		}
 	}
 }
 
