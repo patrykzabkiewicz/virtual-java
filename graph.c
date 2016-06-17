@@ -25,8 +25,19 @@ void graph_add_edge(VRTX * const vi, VRTX * const ve) {
 	list_append_back(vi->next, ve);
 }
 
+void graph_add_edge_capacity(VRTX * const va, VRTX * const vb, int32 capacity)
+{
+}
+
+void graph_add_edge_flow(VRTX * const va, VRTX * const vb, int32 flow)
+{
+}
+
+
+
 /* remove neighbor ve of vertex vi */
 void graph_remove_edge(VRTX * const vi, VRTX * const ve) {
 	list_remove(vi->next, ve);
 }
+
 
