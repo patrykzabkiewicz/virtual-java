@@ -33,3 +33,5 @@ CLASS * load_class(int8 * name) {
     c->
 }
 
+void class_destroy(CLASS * const cl) {}
+

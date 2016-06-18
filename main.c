@@ -52,6 +52,8 @@
 #include <stdio.h>
 #include "parser.h"
 #include "list.h"
+#include "linker.h"
+#include "mmalloc.h"
 #include "virtual_machine.h"
 
 /*
@@ -69,14 +71,15 @@ struct {
 	char name[25];
 	char filename[255];
 	char path[25];
-} ncs[NCC];
-
-ncs = {
+} ncs[] = {
 	{ "int" , "int" , "int"},
 	{ "string", "string", "string" }
-}
+};
 
+/* ******** */
 int main(int argc, char *argv[]) {
+/* ******** */
+	int32 i;
 
 	if(argc < 2) {
 		printf("no class file name given");
@@ -84,13 +87,19 @@ int main(int argc, char *argv[]) {
 	}
 
 	// bootstrap class loader
-	stack_init(vm->native_ms, sizeof(CLASS));
 
-	// should be threaded loading
+	// should be threaded
 	// NCC = native class count
+	STACK * ncl_list;
+	ncl_list = (STACK *) mmalloc(sizeof(STACK));
+	stack_init(ncl_list, sizeof(CLASS));
+
 	for(i = 0; i < NCC; i++) {
-		CLASS * clc = load_class(ncs[i]);
-		stack_push(ncl_list,clc);
+		CLASS * clc = load_class(ncs[i].name);
+		STACK_ELEM * stack_elem;
+		stack_elem = (STACK_ELEM *) mmalloc(sizeof(STACK_ELEM));
+		stack_elem->data = clc;
+		stack_push(ncl_list,stack_elem);
 	}
 
 	// user defined class loader
@@ -103,10 +112,21 @@ int main(int argc, char *argv[]) {
 	 *	Resolution: transforms symbolic references from the type into direct references.
 	 */
 	linker(cl);
+	
+	/* cache the result of parsing and linking */
+	//cache();
 
 	// starting the main interprer process
 	MACHINE * vm;
 	virtual_machine_init(vm);
+	stack_init(vm->native_ms, sizeof(CLASS));
+
+	virtual_machine_exec(vm,cl);
+
+	/* memory cleanup */
+	virtual_machine_destroy(vm);
+	list_destroy(ncl_list);
+	class_destroy(cl);
 
 	/* always return zero at the end */
 	return 0;

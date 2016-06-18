@@ -33,6 +33,13 @@ typedef struct _cp_info {
     uint8 info[];
 } cp_info;
 
+typedef struct _attribute_info {
+	uint16 attribute_name_index;
+	uint32 attribute_length;
+	uint8 * info; /* table */
+} attribute_info;
+
+
 typedef struct CONSTANT_Class_info {
 	uint8 tag;
 	uint16 name_index;
@@ -136,12 +143,6 @@ typedef struct _method_info {
 #define ACC_STRICT 0x0800
 #define ACC_SYNTHETIC 0x1000
 
-typedef struct _attribute_info {
-	uint16 attribute_name_index;
-	uint32 attribute_length;
-	uint8 * info; /* table */
-} attribute_info;
-
 typedef struct _ConstantValue_attribute {
 	uint16 attribute_name_index;
 	uint32 attribute_length;
@@ -198,7 +199,7 @@ typedef struct Class_File_Format {
 
 
 CLASS * load_class(int8 * name);
-
+void class_destroy(CLASS * const cl);
 
 #endif // PARSER_H_
 

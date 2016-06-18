@@ -12,7 +12,7 @@ void Vec10Copy( vec_t *in, vec_t *out ) {
 }
 
 vec_t _DotProduct (vec3_t v1, vec3_t v2) {
-	v1[]
+	
 }
 
 void _VectorSubtract (vec3_t va, vec3_t vb, vec3_t out) {

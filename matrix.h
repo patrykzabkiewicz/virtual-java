@@ -9,6 +9,7 @@
 #define MATRIX_H_
 
 #include "typedef.h"
+#include "mmalloc.h"
 
 typedef struct _matrix {
 	uint32 dims;				/* dim size */
@@ -19,7 +20,12 @@ typedef struct _matrix {
 } MATRIX;
 
 /* initiaties the matrix and returns pointer to it */
-void * const matrix_init(MATRIX * const A);
+void * matrix_init(
+		MATRIX * const A,
+		uint32 dims,
+		uint32 * dim_sizes,
+		uint32 elem_size
+);
 
 MATRIX * const matrix_add(MATRIX * const A, MATRIX * const B);
 

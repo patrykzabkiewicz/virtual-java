@@ -41,7 +41,7 @@ typedef struct _cpu {
 inline void px_cpu_init(PX_CPU * px);
 
 /* Stack simulator structure */
-typedef struct _stack {
+typedef struct _px_stack {
 	uint8 count;
 	uint8 * data;
 	uint8 * first;

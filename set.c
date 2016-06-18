@@ -7,7 +7,16 @@ void set_init(SET * s, uint32 elem_size) {
     s->count = 0;
 }
 
-void set_add_elem(SET * s, SET_ELEM * elem);
+void set_destroy(SET * s) {
+    int32 i;
+    for(i=0; i < (s->elem_size * s->); i++) {
+        free(s->data + (s->elem_size * s->));
+    }
+}
+
+void set_add_elem(SET * s, SET_ELEM * elem) {
+    s->data
+}
 void set_add_set(SET * s, SET * set);
 int32 set_dot_product(SET * s);
 void set_sub_elem(SET * s, int32 elem);

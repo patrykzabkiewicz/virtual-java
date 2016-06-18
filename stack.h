@@ -40,9 +40,9 @@ STACK * stack_copy(STACK * stack);
 STACK * stack_hard_copy(STACK * stack);
 
 /* push element to stack */
-void push_stack(STACK * stack, STACK_ELEM * data);
+void stack_push(STACK * stack, STACK_ELEM * data);
 
 /* pop element from stack */
-void * pop_stack(STACK * stack);
+void * stack_pop(STACK * stack);
 
 #endif /* STACK_H_ */

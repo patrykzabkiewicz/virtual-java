@@ -32,7 +32,7 @@ void list_append_back(LIST * this, LIST_ELEM * elem) {
 uint32 list_pop_back(LIST * this, LIST_ELEM * elem) {
 	LIST_ELEM tmp;
 	elem = this->last;
-	free(this->last);
+	mfree(this->last);
 	this->last = elem->prev;
 	return this->elem_size;
 }
@@ -63,15 +63,13 @@ void list_qsort(
 		LIST * this,									/* pointer to structure */
 		LIST_ELEM * lo_ptr,
 		LIST_ELEM * hi_ptr,
-		size_t elem_count,								/* element quantity */
-		size_t elem_size,								/* single element size */
         int (*comparator)(const void *, const void *)	/* comparator function pointer */
 		) {
 	if(comparator(this->first, this->last))
 	{
 		LIST_ELEM * pivot_ptr = list_partition(this, lo_ptr, hi_ptr, comparator);
-		list_qsort(this, lo_ptr, pivot_ptr);
-		list_qsort(this, pivot_ptr+1, hi_ptr);
+		// list_qsort(this, lo_ptr, pivot_ptr,comparator);
+		// list_qsort(this, pivot_ptr+1, hi_ptr,comparator);
 	}
 }
 
@@ -84,7 +82,7 @@ uint32 list_find_indx(
 			LIST_ELEM * cur;
 			cur = this;
 			
-			while(this->next) {
+			while(cur->next) {
 				if( memncpy(cur->data, elem->data, this->elem_size) ) {
 					return indx;
 				}
@@ -103,7 +101,7 @@ const LIST_ELEM * const list_find_ptr(
 			LIST_ELEM * cur;
 			cur = this;
 			
-			while(this->next) {
+			while(cur->next) {
 				if( memncpy(cur->data, elem->data, this->elem_size) ) {
 					return cur;
 				}
@@ -129,8 +127,8 @@ void list_append_norepeat(
 LIST_ELEM * list_partition(
 		LIST * this, 
 		LIST_ELEM * lo_ptr, 
-		LIST_ELEM * hi_ptr,
-		int(*comparator)
+		LIST_ELEM * hi_ptr, 
+		int (*comparator)(const void *, const void *)
 	) {
 	LIST_ELEM * pivot_ptr;
 	LIST_ELEM * tmp;

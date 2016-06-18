@@ -2,6 +2,7 @@
 #define LIST_H
 
 #include "typedef.h"
+#include "mmalloc.h"
 
 /* Single list element */
 typedef struct _list_elem {
@@ -86,8 +87,8 @@ void list_remove(
 /* sort elements in the list */
 void list_qsort(
 		LIST * this,									/* pointer to structure */
-		uint32 elem_count,								/* element quantity */
-		uint32 elem_size,								/* single element size */
+		LIST_ELEM * lo_ptr,
+		LIST_ELEM * hi_ptr,
         int (*comparator)(const void *, const void *)	/* comparator function pointer */
 		);
 
@@ -99,7 +100,12 @@ void list_append_norepeat(
 
 
 /* partitioner for quick sort */
-LIST_ELEM * list_partition(LIST * this, LIST_ELEM * lo_ptr, LIST_ELEM * hi_ptr);
+LIST_ELEM * list_partition(
+	LIST * this, 
+	LIST_ELEM * lo_ptr, 
+	LIST_ELEM * hi_ptr, 
+	int (*comparator)(const void *, const void *)
+	);
 
 /* integer sorter */
 int int_comparator( const void *first_arg, const void *second_arg );

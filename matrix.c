@@ -8,14 +8,13 @@
 #include "matrix.h"
 
 /* Initiates the matrix and returns pointer to it */
-void * const matrix_init(
+void * matrix_init(
 		MATRIX * const A,
 		uint32 dims,
 		uint32 * dim_sizes,
 		uint32 elem_size
 		) {
 	uint32 i;
-	A = malloc(sizeof(MATRIX));
 	A->dims = dims;
 	for(i=0; i < dims; i++) {
 		A->dim_sizes[i] = dim_sizes[i];
