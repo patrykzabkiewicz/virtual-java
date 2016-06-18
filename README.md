@@ -41,6 +41,18 @@
 	- boundy checks
 	- bit ecc checks on data types
 
+## Usage
+
+### Compilation:
+	git clone https://github.com/CppArchMasters/lightweight-java-vm.git
+	mkdir build-lgjava
+	cd build-lgjava
+	cmake ../lightweight-java-vm
+	make
+
+### Runing:
+	lg-java [your-java-class-filename]
+
 ## Author
 Author:		Patryk Zabkiewicz
 Date: 		2016-03-23
