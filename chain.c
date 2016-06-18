@@ -19,7 +19,7 @@ void chain_append(CHAIN * const chain, CHAIN_ELEM * elem) {
 }
 
 /* chain pop element from the back */
-size_t chain_pop(CHAIN * const chain, void * data) {
+uint32 chain_pop(CHAIN * const chain, void * data) {
 	if(chain->last) {
 		data = chain->last;
 		chain->last = chain->last->prev;

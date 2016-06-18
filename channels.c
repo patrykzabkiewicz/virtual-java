@@ -6,7 +6,7 @@ uint32 createChnl(uint32 flags)
 {
     static uint32 cur_chnl = 0; // static variable
 
-    channels[cur_chnl] = (CHNL *) malloc(sizeof(CHNL));
+    channels[cur_chnl] = (CHNL *) mmalloc(sizeof(CHNL));
     return cur_chnl++; // no mistake here
 }
 
@@ -14,8 +14,8 @@ uint32 createChnl(uint32 flags)
 uint32 destroyChnl(uint32 chid)
 {
     // free the memory
-    free(channels[chid]->msg);
-    free(channels[chid]);
+    mfree(channels[chid]->msg);
+    mfree(channels[chid]);
     return true;
 }
 
@@ -26,7 +26,7 @@ uint32 MsgReceive( uint32 chid,
                 struct _msg_info * info )
 {
 	if(bytes <= channels[chid]->cur_bytes) {
-		memcpy(msg, channels[chid]->msg, bytes);
+		mmemcpy(msg, channels[chid]->msg, bytes);
 	}
     return true;
 }

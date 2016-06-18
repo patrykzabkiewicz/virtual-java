@@ -13,11 +13,12 @@
 #include "typedef.h"
 #include "bool.h"
 #include "nullptr.h"
+#include "mmalloc.h"
 
 typedef struct _heap {
 	uint32 elem_size;
 	uint32 count;			/* number of elements on stack */
-	void *root;				/* general hack for custom sized array */
+	void * root;			/* general hack for custom sized array */
 } HEAP;
 
 /* init general heap */
@@ -34,21 +35,22 @@ void heap_insert_head(HEAP * const h, void * const he);
 /**
  * removes heap head
  */
-void * heap_remove_head(HEAP * const h);
+void heap_remove_head(HEAP * const h);
 
 /**
  * inserts leaf to binary tree
  */
-void heap_insert_binary(HEAP * const h, void * const item);
+void heap_insert_binary(HEAP * const h, void * const item,int32 (*comparator)(void * const A, void * const B));
 
 /* depth first search */
 void heap_dfs(HEAP * const h, void * const item);
 
-/* return path from given point to root */
-int * heap_path();
+/* return number of elements in path 
+ fills out pointer to list of verticies from given point to root */
+uint32 heap_path(HEAP * const h, uint32 * vertex_list, uint32 A);
 
 /* swap two elements in a heap/tree */
-void heap_swap(HEAP * const h, void * const A, void * const B);
+void heap_swap(HEAP * const h, uint32 A, uint32 B);
 
 /* shift up the element in heap */
 void heap_shift_up(HEAP * const h, void * const A);

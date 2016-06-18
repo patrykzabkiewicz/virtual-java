@@ -16,8 +16,8 @@ typedef struct _list {
 	LIST_ELEM * first;
 	LIST_ELEM * last;
 	uint32 count;				/* count of elements in the list */
-	size_t elem_size;			/* element size in bytes */
-	size_t list_size;			/* list size in bytes */
+	uint32 elem_size;			/* element size in bytes */
+	uint32 list_size;			/* list size in bytes */
 	uint8  copy : 1;			/* copy-on-write idiom */
 } LIST;
 
@@ -86,8 +86,8 @@ void list_remove(
 /* sort elements in the list */
 void list_qsort(
 		LIST * this,									/* pointer to structure */
-		size_t elem_count,								/* element quantity */
-		size_t elem_size,								/* single element size */
+		uint32 elem_count,								/* element quantity */
+		uint32 elem_size,								/* single element size */
         int (*comparator)(const void *, const void *)	/* comparator function pointer */
 		);
 

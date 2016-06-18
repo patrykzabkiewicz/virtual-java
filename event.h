@@ -18,7 +18,7 @@ typedef struct _event {
 	uint32 date;
 	uint32 type;
 	uint32 data_lenght;
-	time_t datetime;
+	lgtime_t datetime;
 	void * data;
 	uint8 end[1];
 } EVENT;

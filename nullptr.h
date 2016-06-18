@@ -1,7 +1,7 @@
 #ifndef NULLPTR_H_
 #define NULLPTR_H_
 
-typedef const void * const nullptr;
+typedef void * const nullptr;
 #define NULL (nullptr) 0
 #define nullptr (nullptr) 0
 

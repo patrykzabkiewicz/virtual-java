@@ -15,7 +15,7 @@ typedef struct _chain_elem {
 
 /* chain structure */
 typedef struct _chain {
-	size_t elem_size;			/* single element size */
+	uint32 elem_size;			/* single element size */
 	CHAIN_ELEM * first;			/* first element pointer */
 	CHAIN_ELEM * last;			/* last element pointer */
 	uint32 count;				/* quantity of elements */
@@ -29,6 +29,6 @@ void chain_init(CHAIN * const chain, uint32 elem_size);
 void chain_append(CHAIN * const chain, CHAIN_ELEM * elem);
 
 /* chain pop element from the back */
-size_t chain_pop(CHAIN * const chain, void * data);
+uint32 chain_pop(CHAIN * const chain, void * data);
 
 #endif // CHAIN_H_
