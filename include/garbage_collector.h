@@ -8,8 +8,8 @@
 #ifndef GARBAGE_COLLECTOR_H_
 #define GARBAGE_COLLECTOR_H_
 
-#include <pthread.h>
 #include <unistd.h>
+#include <pthread.h>
 
 #include "queue.h"
 #include "mmalloc.h"
