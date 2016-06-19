@@ -72,11 +72,13 @@ void * stack_pop(STACK * stack) {
 	if(stack->first) {
 		STACK_ELEM * tmp;
 		tmp = stack->first;
-		free(stack->first);
+		mfree(stack->first);
 		stack->first = tmp->next;
 		return tmp->data;
 	}
 	return nullptr;
 }
 
-
+void stack_destroy(STACK * stack) {
+	
+}

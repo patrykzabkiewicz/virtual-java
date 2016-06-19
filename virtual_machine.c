@@ -16,7 +16,10 @@ void virtual_machine_init(MACHINE * m) {
 }
 
 void virtual_machine_exec(MACHINE * m, CLASS * cl) {
-	queue_append_back(m->instr_queue, cl);
+	QUEUE_ELEM * qe;
+	qe = (QUEUE_ELEM *) mmalloc(sizeof(QUEUE_ELEM));
+	qe->data = (void *) cl;
+	queue_append_back(m->instr_queue, qe);
 }
 
 void virtual_machine_destroy(MACHINE * m) {

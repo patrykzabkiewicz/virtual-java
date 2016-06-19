@@ -11,6 +11,7 @@
 
 #include "typedef.h"
 #include "list.h"
+#include "mmalloc.h"
 
 static uint32 vrtx_id = 0;
 
@@ -24,7 +25,7 @@ typedef enum _field_type_enum {
 } FIELD_TYPE;
 
 typedef struct _field {
-	uint8 * data;
+	void * data;
 	FIELD_TYPE type;		/* field type */
 	uint32 lenght;			/* lenght of the field */
 } FIELD;
@@ -36,14 +37,14 @@ int int_ptr[DEFAULT_INT];
 char char_ptr[DEFAULT_INT];
 
 FIELD table[] = {
-	{ int_ptr, INT, 11},
-	{ char_ptr, CHAR, 11}
+	{ (void *)int_ptr, INT, 11},
+	{ (void *)char_ptr, CHAR, 11}
 };
 
 typedef struct _table {
 	uint8 * name;
 	LIST * fields;
-	uint32 field_
+	uint32 field_count;
 } TABLE;
 
 struct { FIELD_TYPE type; int byte_count; } field_types[] = {

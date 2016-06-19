@@ -46,7 +46,7 @@ uint32 list_pop_back(LIST * this, LIST_ELEM * elem) {
 uint32 list_pop_front(LIST * this, LIST_ELEM * elem) {
 	LIST_ELEM tmp;
 	elem = this->first;
-	free(this->first);
+	mfree(this->first);
 	this->first = elem->next;
 	return this->elem_size;
 }
@@ -91,7 +91,7 @@ uint32 list_find_indx(
 		) {
 			uint32 indx = 0;
 			LIST_ELEM * cur;
-			cur = this;
+			cur = this->first;
 			
 			while(cur->next) {
 				if( mmemcmp(cur->data, elem->data, this->elem_size) ) {
@@ -110,7 +110,7 @@ const LIST_ELEM * const list_find_ptr(
 		const LIST_ELEM * const elem
 		) {
 			LIST_ELEM * cur;
-			cur = this;
+			cur = this->first;
 			
 			while(cur->next) {
 				if( mmemcmp(cur->data, elem->data, this->elem_size) ) {

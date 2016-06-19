@@ -5,6 +5,7 @@
 #include "queue.h"
 #include "list.h"
 #include "event.h"
+#include "mmalloc.h"
 
 #define EVENT_DISPATCH_INTERVAL 10
 

@@ -14,6 +14,7 @@
 extern QUEUE * lglog;
 
 #define MAX_FILE_SIZE 4096
+#define CANT_READ_FILE "Cannot read class file:"
 
 CLASS * load_class(int8 * name) {
     // read file to memory
@@ -29,7 +30,8 @@ CLASS * load_class(int8 * name) {
     else
     {
         // error opening file
-        putlog(lglog, WARRNING,"Cannot read class file: " );
+        int8 msg[] = CANT_READ_FILE;
+        putlog(lglog, WARRNING, msg );
     }
     
     // parse the file and create structures

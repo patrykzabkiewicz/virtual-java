@@ -52,6 +52,7 @@
 #include <stdio.h>
 #include "parser.h"
 #include "list.h"
+#include "stack.h"
 #include "linker.h"
 #include "mmalloc.h"
 #include "virtual_machine.h"
@@ -125,7 +126,7 @@ int main(int argc, char *argv[]) {
 
 	/* memory cleanup */
 	virtual_machine_destroy(vm);
-	list_destroy(ncl_list);
+	stack_destroy(ncl_list);
 	class_destroy(cl);
 
 	/* always return zero at the end */

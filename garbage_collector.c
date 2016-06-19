@@ -12,7 +12,7 @@ void garbage_init(QUEUE * const gb) {
 	pthread_t pth;	// this is our thread identifier
 
 	/* Create worker thread */
-	pthread_create(&pth,0,garbage_worker,0);
+	pthread_create(&pth,0,garbage_worker,(void *)0);
 
 	/* wait for our thread to finish before continuing */
 	pthread_join(pth, 0 /* void ** return value could go here */);
@@ -20,7 +20,7 @@ void garbage_init(QUEUE * const gb) {
 }
 
 /* worker in thread to check if the garbage has to be collected */
-void garbage_worker() {
+void * garbage_worker(void * v) {
 	while(1) {
 		if(garbage_collector->count > GARBAGE_COLLECTOR_LIMIT) {
 			garbage_collect(garbage_collector);
@@ -42,6 +42,6 @@ void garbage_collect(QUEUE * const gb) {
 	void * garbage;
 	while(gb) {
 		bytes = queue_pop_front(gb, garbage);
-		free(garbage);
+		mfree(garbage);
 	}
 }

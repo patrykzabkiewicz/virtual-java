@@ -9,7 +9,10 @@
 #define GARBAGE_COLLECTOR_H_
 
 #include <pthread.h>
+#include <unistd.h>
+
 #include "queue.h"
+#include "mmalloc.h"
 
 #define GARBAGE_COLLECTOR_LIMIT 10
 
@@ -19,7 +22,7 @@ QUEUE * garbage_collector;
 void garbage_init(QUEUE * const gb);
 
 /* worker in thread to check if the garbage has to be collected */
-void garbage_worker();
+void * garbage_worker(void *);
 
 /* collect garbage */
 void garbage_collect(QUEUE * const gb);

@@ -46,4 +46,6 @@ void stack_push(STACK * stack, STACK_ELEM * data);
 /* pop element from stack */
 void * stack_pop(STACK * stack);
 
+void stack_destroy(STACK * stack);
+
 #endif /* STACK_H_ */

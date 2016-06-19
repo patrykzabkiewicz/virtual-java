@@ -25,9 +25,13 @@ void * matrix_init(
 }
 
 MATRIX * const matrix_add(MATRIX * const A, MATRIX * const B) {
-	if(A->dims == B->dims) {
+	MATRIX * const M = (MATRIX *) mmalloc(sizeof(MATRIX));
 
+	if(A->dims == B->dims) {
+		return M;
 	}
+
+	return M;
 }
 
 MATRIX * const matrix_add_factor(MATRIX * const A, uint32 factor);
