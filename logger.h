@@ -22,6 +22,6 @@ QUEUE * lglog;
 void logger_init(QUEUE * const lglog);
 
 /* add line to log */
-void putlog(QUEUE * const lglog, LOGLEVEL lvl, LOGLINE * const logline );
+void putlog(QUEUE * const log, LOGLEVEL lvl, LOGLINE * const logline );
 
 #endif // LOGGER_H_

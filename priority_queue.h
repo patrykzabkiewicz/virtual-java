@@ -9,6 +9,7 @@
 #define PRIORITY_QUEUE_H_
 
 #include "typedef.h"
+#include "mmalloc.h"
 
 /* priority queue basic element */
 typedef struct _priority_queue_elem {
@@ -21,7 +22,7 @@ typedef struct _priority_queue_elem {
 typedef struct _priority_queue {
 	PRIO_QUEUE_ELEM * first;
 	PRIO_QUEUE_ELEM * last;
-	uint8 * copy : 1;  /* copy-on-write idiom */
+	uint8 copy : 1;  /* copy-on-write idiom */
 	uint32 count;
 	uint32 elem_size;
 	uint32 max_size;
@@ -45,6 +46,6 @@ PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue);
 uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem);
 
 /* push element back to queue */
-void priority_queue_push(PRIO_QUEUE * pqueue, void * data);
+void priority_queue_push(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem);
 
 #endif /* PRIORITY_QUEUE_H_ */

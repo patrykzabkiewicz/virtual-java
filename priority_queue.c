@@ -35,8 +35,8 @@ PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue) {
 	PRIO_QUEUE_ELEM * tmp_elem;
 	tmp_elem = pqueue->first;
 	while(tmp_elem) {
-		tmp->first = malloc(sizeof(PRIO_QUEUE_ELEM));
-		memcpy(tmp->first, tmp_elem, sizeof(PRIO_QUEUE_ELEM));
+		tmp->first = mmalloc(sizeof(PRIO_QUEUE_ELEM));
+		mmemcpy(tmp->first, tmp_elem, sizeof(PRIO_QUEUE_ELEM));
 		tmp_elem = tmp_elem->next;
 	}
 	return tmp;
@@ -44,7 +44,6 @@ PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue) {
 
 /* pop element from front */
 uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem) {
-	LIST_ELEM tmp;
 	elem = pqueue->first;
 	pqueue->first = pqueue->first->next;
 	return pqueue->elem_size;

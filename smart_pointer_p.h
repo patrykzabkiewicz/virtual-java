@@ -11,9 +11,9 @@
 #include "typedef.h"
 
 typedef struct _smrt_ptr_p {
-	uint32 * __ref_count; 	/* reference counter */
-	uint32 * __elem_size; 	/* max jump */
-	uint32 * __array_size; 	/* whole array size for boundry checks */
+	uint32 __ref_count; 	/* reference counter */
+	uint32 __elem_size; 	/* max jump */
+	uint32 __array_size; 	/* whole array size for boundry checks */
 } SMRT_PTR_P;
 
 

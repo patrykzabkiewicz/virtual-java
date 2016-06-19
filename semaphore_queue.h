@@ -2,12 +2,13 @@
 #define SEMAPHORE_QUEUE_H
 
 #include "typedef.h"
+#include "mmalloc.h"
 
 /* Semaphore queue basic element */
 typedef struct _semaphore_queue_elem {
-	void * data;						/* the data the element contains */
-	uint32 read_count;					/* how many reads this element already has */
-	struct _semaphore_queue * next;		/* next element on the queue */
+	void * data;								/* the data the element contains */
+	uint32 read_count;							/* how many reads this element already has */
+	struct _semaphore_queue_elem * next;		/* next element on the queue */
 } SEMAPHORE_QUEUE_ELEM;
 
 
@@ -21,7 +22,7 @@ typedef struct _semaphore_queue {
 } SEMAPHORE_QUEUE;
 
 /* initiates the semaphore queue */
-void sem_q_init(SEMAPHORE_QUEUE * this, uint32 elem_size);
+void sem_q_init(SEMAPHORE_QUEUE * this, uint32 elem_size, uint32 read_limit);
 
 /* takes element from the queue */
 void * sem_q_pop(SEMAPHORE_QUEUE * this);

@@ -5,8 +5,13 @@
  *      Author: zabkiewp
  */
 
-#include "parser.h"
 #include <stdio.h>
+
+#include "parser.h"
+#include "logger.h"
+#include "mmalloc.h"
+
+extern QUEUE * lglog;
 
 #define MAX_FILE_SIZE 4096
 
@@ -16,21 +21,22 @@ CLASS * load_class(int8 * name) {
     uint8 buffer[MAX_FILE_SIZE];
     uint32 n;
 
-    f = fopen(name, "rb");
-    if (f)
+    fd = fopen(name, "rb");
+    if (fd)
     {
-        n = fread(buffer, MAX_FILE_SIZE, 1, f);
+        n = fread(buffer, MAX_FILE_SIZE, 1, fd);
     }
     else
     {
         // error opening file
-        Log(WARRNING,"Cannot read class file: " + name );
+        putlog(lglog, WARRNING,"Cannot read class file: " );
     }
     
     // parse the file and create structures
-    CLASS * c = (CLASS *) malloc (sizeof(CLASS));
-    c->magic_number = ;
-    c->
+    CLASS * c = (CLASS *) mmalloc (sizeof(CLASS));
+    // c->magic_number = ;
+    // c->
+    return c;
 }
 
 void class_destroy(CLASS * const cl) {}

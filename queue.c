@@ -7,8 +7,7 @@ void queue_append_back(QUEUE * queue, QUEUE_ELEM * elem) {
 }
 
 /* Returns number of bytes popped from back of the list */
-uint32 queue_pop_front(const QUEUE * queue, QUEUE_ELEM * elem) {
-	LIST_ELEM tmp;
+uint32 queue_pop_front(QUEUE * const queue, QUEUE_ELEM * elem) {
 	elem = queue->first;
 	queue->first = queue->first->next;
 	return queue->elem_size;

@@ -23,6 +23,15 @@ void mmemcpy(void * target, void * source, int bytecount) {
 
 }
 
+int mmemcmp(void * const source, void * const end, int elem_size) {
+    return 1;
+}
+
+void * mcalloc(size_t size) {
+    void * ptr;
+    return ptr;
+}
+
 void mfree(void* ptr) {
     free_block* block = (free_block*)(((char*)ptr) - sizeof(size_t));
     block->next = free_block_list_head.next;

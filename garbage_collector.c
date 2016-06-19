@@ -41,7 +41,7 @@ void garbage_collect(QUEUE * const gb) {
 	uint32 bytes;
 	void * garbage;
 	while(gb) {
-		bytes = queue_pop(gb, garbage);
+		bytes = queue_pop_front(gb, garbage);
 		free(garbage);
 	}
 }

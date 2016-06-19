@@ -9,13 +9,13 @@ void set_init(SET * s, uint32 elem_size) {
 
 void set_destroy(SET * s) {
     int32 i;
-    for(i=0; i < (s->elem_size * s->); i++) {
-        free(s->data + (s->elem_size * s->));
+    for(i=0; i < (s->elem_size * s->count); i++) {
+        mfree(s->first + (s->elem_size * s->count));
     }
 }
 
 void set_add_elem(SET * s, SET_ELEM * elem) {
-    s->data
+    // s->data
 }
 void set_add_set(SET * s, SET * set);
 int32 set_dot_product(SET * s);

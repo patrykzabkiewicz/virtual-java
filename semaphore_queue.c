@@ -20,7 +20,7 @@ void * sem_q_pop(SEMAPHORE_QUEUE * this) {
 		this->count--;
 	}
 	if( this->first->next ) {
-		free(this->first);
+		mfree(this->first);
 		this->first = tmp->next;
 	}
 	return tmp->data;

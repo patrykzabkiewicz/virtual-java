@@ -10,6 +10,7 @@
 
 #include "typedef.h"
 #include "nullptr.h"
+#include "mmalloc.h"
 
 typedef struct _stack_elem {
 	void * data;

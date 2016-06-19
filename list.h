@@ -37,6 +37,9 @@ uint32 list_pop_front(LIST * const this, LIST_ELEM * const elem);
 /* Initiates the list structure */
 void list_init(LIST * const this, uint32 elem_size);
 
+/* destructor of list */
+void list_destroy(LIST * const this);
+
 /* Copy constructor */
 void list_init_copy(LIST * const this, LIST * list);
 

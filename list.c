@@ -11,6 +11,11 @@ void list_init(LIST * this, uint32 elem_size) {
 	this->elem_size = elem_size;
 }
 
+/* destructor of list */
+void list_destroy(LIST * const this) {
+
+}
+
 void list_init_copy(LIST * this, LIST * list) {
 	this->elem_size = list->elem_size;
 	this->copy = 1;
@@ -45,6 +50,12 @@ uint32 list_pop_front(LIST * this, LIST_ELEM * elem) {
 	this->first = elem->next;
 	return this->elem_size;
 }
+
+/* remove element from the list */
+void list_remove(
+		LIST * const this,
+		LIST_ELEM * const elem
+		) {}
 
 /* reverse elements of the list */
 void list_reverse(LIST * this) {
@@ -83,7 +94,7 @@ uint32 list_find_indx(
 			cur = this;
 			
 			while(cur->next) {
-				if( memncpy(cur->data, elem->data, this->elem_size) ) {
+				if( mmemcmp(cur->data, elem->data, this->elem_size) ) {
 					return indx;
 				}
 				cur = cur->next;
@@ -102,7 +113,7 @@ const LIST_ELEM * const list_find_ptr(
 			cur = this;
 			
 			while(cur->next) {
-				if( memncpy(cur->data, elem->data, this->elem_size) ) {
+				if( mmemcmp(cur->data, elem->data, this->elem_size) ) {
 					return cur;
 				}
 				cur = cur->next;

@@ -9,6 +9,7 @@
 #define SET_H_
 
 #include "typedef.h"
+#include "mmalloc.h"
 
 typedef struct _set_elem {
 	void * data;
@@ -16,7 +17,7 @@ typedef struct _set_elem {
 } SET_ELEM;
 
 typedef struct _set {
-	SET * first;
+	SET_ELEM * first;
 	uint32 elem_size;
 	uint32 count;			/* number of elements in set */
 } SET;
