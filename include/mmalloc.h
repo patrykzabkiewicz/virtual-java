@@ -6,7 +6,7 @@
 #ifndef WINDOWS
 #include <unistd.h>
 #else
-typedef unsigned int     size_t;
+//typedef unsigned int     size_t;
 #endif
 
 #if defined (WINDOWS)
