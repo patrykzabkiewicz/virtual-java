@@ -12,7 +12,7 @@
 #define false 0
 
 typedef struct _bool {
-	unsigned char val : 1;
+	int val : 1;
 } __bool;
 
 #define stdbool __bool

@@ -3,6 +3,7 @@
 
 #include "typedef.h"
 #include "mmalloc.h"
+#include "nullptr.h"
 
 /* Single list element */
 typedef struct _list_elem {
@@ -23,16 +24,16 @@ typedef struct _list {
 } LIST;
 
 /* Appends element to front of the list */
-void list_append_front(LIST * const this, LIST_ELEM * const elem);
+void list_append_front(LIST * const this, LIST_ELEM * elem);
 
 /* Appends element to back from the list */
-void list_append_back(LIST * const this, LIST_ELEM * const elem);
+void list_append_back(LIST * const this, LIST_ELEM * elem);
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_back(LIST * const this, LIST_ELEM * const elem);
+uint32 list_pop_back(LIST * const this, LIST_ELEM * elem);
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_front(LIST * const this, LIST_ELEM * const elem);
+uint32 list_pop_front(LIST * const this, LIST_ELEM * elem);
 
 /* Initiates the list structure */
 void list_init(LIST * const this, uint32 elem_size);
@@ -41,7 +42,7 @@ void list_init(LIST * const this, uint32 elem_size);
 void list_destroy(LIST * const this);
 
 /* Copy constructor */
-void list_init_copy(LIST * const this, LIST * list);
+void list_init_copy(LIST * const this, LIST * const list);
 
 /* reverse elements of the list */
 void list_reverse(LIST * const this);

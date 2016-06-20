@@ -19,13 +19,13 @@ void vector_init(
 /* insert data into an array */
 void vector_insert(VECTOR * const v, void * const data, uint32 position)
 {
-	mmemcpy(data ,(v->data)+position, v->elem_size);
+	mmemcpy(((int8 *)v->data) + (v->elem_size * position), data, v->elem_size);
 }
 
 /* get the data from the array */
 uint32 vector_get(VECTOR * const v, uint32 position, void * elem)
 {
-	elem = v->data + position;
+	mmemcpy(elem, (int8 *)v->data + (v->elem_size * position), v->elem_size );
 	return v->elem_size;
 }
 
@@ -44,12 +44,12 @@ void vector_append(VECTOR * const v, void * const data)
 		v->max_size = new_size;
 	}
 
-	mmemcpy(v->data + (v->elem_size*v->count++), data, v->elem_size);
+	mmemcpy((int8 *)v->data + (v->elem_size*v->count++), data, v->elem_size);
 }
 
 /* remove from the end of the vector */
 uint32 vector_pop(VECTOR * const v, void * data) {
 	v->count--;
-	data = v->data + v->elem_size*v->count;
+	mmemcpy(data, (int8 *)v->data + (v->elem_size*v->count), v->elem_size);
 	return v->elem_size;
 }

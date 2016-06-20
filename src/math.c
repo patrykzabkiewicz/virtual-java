@@ -33,7 +33,7 @@ void _VectorScale (vec3_t v, vec_t scale, vec3_t out) {
 }
 
 double VectorLength( const vec3_t v ) {
-    double d;
+    double d = 0.0f;
     return d;
 }
 

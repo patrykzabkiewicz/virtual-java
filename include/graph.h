@@ -17,11 +17,11 @@ static uint32 vrtx_id = 0;
 
 
 typedef enum _field_type_enum {
-	INT,
-	CHAR,
+	INTEGER = 1,
+	CHARACTER,
 	VARCHAR,
-	FLOAT,
-	DOUBLE
+	FLOATING_POINT,
+	DOUBLE_PRECISION
 } FIELD_TYPE;
 
 typedef struct _field {
@@ -37,8 +37,8 @@ int int_ptr[DEFAULT_INT];
 char char_ptr[DEFAULT_INT];
 
 FIELD table[] = {
-	{ (void *)int_ptr, INT, 11},
-	{ (void *)char_ptr, CHAR, 11}
+	{ (void *)int_ptr, INTEGER, 11},
+	{ (void *)char_ptr, CHARACTER, 11}
 };
 
 typedef struct _table {
@@ -48,11 +48,11 @@ typedef struct _table {
 } TABLE;
 
 struct { FIELD_TYPE type; int byte_count; } field_types[] = {
-	{INT, 4},
-	{CHAR, 1},
+	{INTEGER, 4},
+	{CHARACTER, 1},
 	{VARCHAR, 4},
-	{FLOAT, 4},
-	{DOUBLE, 4}
+	{FLOATING_POINT, 4},
+	{DOUBLE_PRECISION, 4}
 };
 
 /* STRUCT holding the informations about calculated data */

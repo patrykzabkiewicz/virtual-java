@@ -15,7 +15,12 @@
 #define int8 char
 #define int16 short
 #define int32 int
+
+#ifndef WINDOWS
 #define int64 long long
+#else
+typedef __int64 int64;
+#endif
 
 #define bool int
 #define true 1

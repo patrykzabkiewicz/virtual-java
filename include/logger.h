@@ -8,7 +8,7 @@
 typedef enum _loglevel {
     INFO,
     WARRNING,
-    ERROR,
+    ERRORS,
     CRITICAL    
 } LOGLEVEL;
 

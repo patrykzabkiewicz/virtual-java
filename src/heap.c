@@ -40,7 +40,7 @@ void heap_insert_binary(
 	// while heap still has elements in branches
 	for (i = 0; i < h->count; ) {
 		// compare left and right
-		if( comparator((HEAP *)(h->root + i), he) ) {
+		if( comparator(((HEAP *)h->root + i), he) ) {
 			i = 2 * i + 1;
 		}
 		else {
@@ -57,8 +57,8 @@ void heap_dfs(HEAP * const h, void * const item) {
 
 /* return path from given point to root */
 uint32 heap_path(HEAP * const h, uint32 * vertex_list, uint32 A) {
-	uint32 i;
-	uint32 count;
+	uint32 i = 0;
+	uint32 count = 0;
 	vertex_list = mmalloc(sizeof(uint32) * 10);
 
 	// while heap still has elements in branches
@@ -83,9 +83,9 @@ void heap_swap(HEAP * const h, uint32 A, uint32 B) {
 	C = mmalloc(sizeof(h->elem_size));
 
 	/* copy memory as we dont know how big are elements */
-	mmemcpy(C, h->root + (h->elem_size * A), h->elem_size);
-	mmemcpy(h->root + (h->elem_size * A), h->root + (h->elem_size * B), h->elem_size);
-	mmemcpy(h->root + (h->elem_size * B), C, h->elem_size);
+	mmemcpy(C, (HEAP *)h->root + (h->elem_size * A), h->elem_size);
+	mmemcpy((HEAP *)h->root + (h->elem_size * A), (HEAP *)h->root + (h->elem_size * B), h->elem_size);
+	mmemcpy((HEAP *)h->root + (h->elem_size * B), C, h->elem_size);
 
 	mfree(C);
 }
@@ -114,7 +114,7 @@ void heap_insert_rb(HEAP * const h, void * const he) {
  **/
 void * heap_find(
 		HEAP * const h,
-		void * data,
+		void * const data,
 		uint32 data_size,
 		int (*comparator)(const void * const a, const void * const b)
 		) {

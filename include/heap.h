@@ -70,7 +70,7 @@ void heap_insert_rb(HEAP * const h, void * const he);
 void * heap_find(
 		HEAP * const h,
 		void * const data,
-		uint32 const data_size,
+		uint32 data_size,
 		int (*comparator)(const void * const a, const void * const b)
 		);
 

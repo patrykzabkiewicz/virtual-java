@@ -8,7 +8,7 @@ void set_init(SET * s, uint32 elem_size) {
 }
 
 void set_destroy(SET * s) {
-    int32 i;
+    uint32 i;
     for(i=0; i < (s->elem_size * s->count); i++) {
         mfree(s->first + (s->elem_size * s->count));
     }

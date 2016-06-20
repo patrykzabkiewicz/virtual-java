@@ -1,7 +1,20 @@
 #ifndef MMALLOC_H
 #define MMALLOC_H
 
+#define WINDOWS
+
+#ifndef WINDOWS
 #include <unistd.h>
+#else
+typedef unsigned int     size_t;
+#endif
+
+#if defined (WINDOWS)
+#include <Windows.h>
+#define alloc(X) VirtualAlloc(NULL, X, MEM_COMMIT, PAGE_EXECUTE_READWRITE)
+#else
+#define alloc(X) sbrk(X)
+#endif
 
 typedef struct free_block {
     size_t size;

@@ -13,7 +13,7 @@ void* mmalloc(size_t size) {
         block = block->next;
     }
 
-    block = (free_block*)sbrk(size);
+    block = (free_block*)alloc(size);
     block->size = size;
 
     return ((char*)block) + sizeof(size_t);

@@ -7,7 +7,7 @@
 
 #include "list.h"
 
-void list_init(LIST * this, uint32 elem_size) {
+void list_init(LIST * const this, uint32 elem_size) {
 	this->elem_size = elem_size;
 }
 
@@ -16,26 +16,25 @@ void list_destroy(LIST * const this) {
 
 }
 
-void list_init_copy(LIST * this, LIST * list) {
+void list_init_copy(LIST * const this, LIST * const list) {
 	this->elem_size = list->elem_size;
 	this->copy = 1;
 }
 
 /* Appends element to front of the list */
-void list_append_front(LIST * this, LIST_ELEM * elem) {
+void list_append_front(LIST * const this, LIST_ELEM * elem) {
 	this->first->prev = elem;
 	this->first = this->first->prev;
 }
 
 /* Appends element to back from the list */
-void list_append_back(LIST * this, LIST_ELEM * elem) {
+void list_append_back(LIST * const this, LIST_ELEM * elem) {
 	this->last->next = elem;
 	this->last = this->last->next;
 }
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_back(LIST * this, LIST_ELEM * elem) {
-	LIST_ELEM tmp;
+uint32 list_pop_back(LIST * const this, LIST_ELEM * elem) {
 	elem = this->last;
 	mfree(this->last);
 	this->last = elem->prev;
@@ -43,8 +42,7 @@ uint32 list_pop_back(LIST * this, LIST_ELEM * elem) {
 }
 
 /* Returns number of bytes popped from back of the list */
-uint32 list_pop_front(LIST * this, LIST_ELEM * elem) {
-	LIST_ELEM tmp;
+uint32 list_pop_front(LIST * const this, LIST_ELEM * elem) {
 	elem = this->first;
 	mfree(this->first);
 	this->first = elem->next;
@@ -58,9 +56,10 @@ void list_remove(
 		) {}
 
 /* reverse elements of the list */
-void list_reverse(LIST * this) {
-	LIST * tmp;
-	LIST_ELEM * tmp_ptr;
+void list_reverse(LIST * const this) {
+	LIST * tmp = nullptr;
+	LIST_ELEM * tmp_ptr = nullptr;
+
 	tmp_ptr = this->first;
 	while(tmp_ptr) {
 		tmp_ptr->next = tmp->first;

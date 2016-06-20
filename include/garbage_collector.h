@@ -8,7 +8,12 @@
 #ifndef GARBAGE_COLLECTOR_H_
 #define GARBAGE_COLLECTOR_H_
 
+#include "windows.h"
+
+#ifndef WINDOWS
 #include <unistd.h>
+#endif
+
 #include <pthread.h>
 
 #include "queue.h"

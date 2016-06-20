@@ -1,7 +1,7 @@
 
 #include "event.h"
 
-void event_init(EVENT * this) {
+void event_init(EVENT * const this) {
 	this->id = 0;
 	this->data_lenght = 0;
 	this->type = 0;

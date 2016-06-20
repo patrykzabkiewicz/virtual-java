@@ -25,7 +25,11 @@ void * garbage_worker(void * v) {
 		if(garbage_collector->count > GARBAGE_COLLECTOR_LIMIT) {
 			garbage_collect(garbage_collector);
 		}
+#ifndef WINDOWS
 		sleep(1);
+#else
+		Sleep(1000);
+#endif
 	}
 }
 
