@@ -31,6 +31,7 @@
 	- no cached interpreter of class files (better security)
 
 	Tests:
+	- unit tests with mocks
 	- thread safty tests
 	- memory leaks tests
 	- compatibility tests
@@ -44,11 +45,21 @@
 ## Usage
 
 ### Compilation:
+#### Requirements
+	pthreads
+
+#### Linux/*nix/BSD/POSIX
 	git clone https://github.com/CppArchMasters/lightweight-java-vm.git
 	mkdir build-lgjava
 	cd build-lgjava
 	cmake ../lightweight-java-vm
 	make
+#### Windows
+	git clone https://github.com/CppArchMasters/lightweight-java-vm.git
+	mkdir build-lgjava
+	cd build-lgjava
+	cmake ../lightweight-java-vm
+	open .sln & build the project or msbuild lg-java.sln
 
 ### Runing:
 	lg-java [your-java-class-filename]
