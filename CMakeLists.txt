@@ -6,6 +6,12 @@ IF (WIN32)
   LINK_DIRECTORIES($ENV{PATH})
 ENDIF()
 
+find_program(CCACHE_FOUND ccache)
+if(CCACHE_FOUND)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+endif(CCACHE_FOUND)
+
 find_library(PTHREAD pthread)
 add_definitions( "-std=c11 -Wall -pedantic -O0" )
 aux_source_directory(./src SRC_LIST)

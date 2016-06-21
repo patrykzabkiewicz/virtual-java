@@ -45,21 +45,27 @@
 ## Usage
 
 ### Compilation:
+
 #### Requirements
 	pthreads
+	ccache (optional) - speeds up compilation
+	distcc (optional) - speeds up compilation with multiple nodes
 
 #### Linux/*nix/BSD/POSIX
 	git clone https://github.com/CppArchMasters/lightweight-java-vm.git
 	mkdir build-lgjava
 	cd build-lgjava
 	cmake ../lightweight-java-vm
-	make
+	make -j4
+
 #### Windows
 	git clone https://github.com/CppArchMasters/lightweight-java-vm.git
 	mkdir build-lgjava
 	cd build-lgjava
 	cmake ../lightweight-java-vm
-	open .sln & build the project or msbuild lg-java.sln
+	msbuild lg-java.sln
+
+	or just use Visual Studio to build
 
 ### Runing:
 	lg-java [your-java-class-filename]
