@@ -13,8 +13,6 @@
 #include "list.h"
 #include "mmalloc.h"
 
-static uint32 vrtx_id = 0;
-
 
 typedef enum _field_type_enum {
 	INTEGER = 1,

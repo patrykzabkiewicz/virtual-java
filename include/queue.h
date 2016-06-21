@@ -16,7 +16,7 @@ typedef struct _queue {
   QUEUE_ELEM * last;
   uint32 count;
   uint32 elem_size;
-  uint8  copy : 1;			/* copy-on-write idiom */
+  uint8  copy;			/* copy-on-write idiom */
 } QUEUE;
 
 
@@ -48,3 +48,4 @@ void queue_append_back_unique(
   );
 
 #endif /* QUEUE_H */
+

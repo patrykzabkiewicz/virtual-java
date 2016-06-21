@@ -46,6 +46,8 @@ void garbage_collect(QUEUE * const gb) {
 	void * garbage = NULL;
 	while(gb) {
 		bytes = queue_pop_front(gb, garbage);
-		mfree(garbage);
+		if(bytes > 0) {
+			mfree(garbage);
+		}
 	}
 }

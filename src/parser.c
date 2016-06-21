@@ -26,6 +26,11 @@ CLASS * load_class(int8 * name) {
     if (fd)
     {
         n = fread(buffer, MAX_FILE_SIZE, 1, fd);
+	if(n) 
+	{
+		// print buffer
+		printf("%s",buffer);
+	}
     }
     else
     {

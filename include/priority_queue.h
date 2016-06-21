@@ -22,7 +22,7 @@ typedef struct _priority_queue_elem {
 typedef struct _priority_queue {
 	PRIO_QUEUE_ELEM * first;
 	PRIO_QUEUE_ELEM * last;
-	uint8 copy : 1;  /* copy-on-write idiom */
+	uint8 copy;  	/* copy-on-write idiom */
 	uint32 count;
 	uint32 elem_size;
 	uint32 max_size;

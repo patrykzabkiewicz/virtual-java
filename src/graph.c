@@ -1,6 +1,8 @@
 
 #include "graph.h"
 
+// static uint32 vrtx_id = 0;   
+
 /* graph initialization */
 GRAPH * const graph_init(GRAPH * g, uint32 elem_size) {
 	g = mmalloc(sizeof(GRAPH));
