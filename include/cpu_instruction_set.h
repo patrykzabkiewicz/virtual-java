@@ -13,4 +13,4 @@
 #define POP 0x11  // pop on stack
 #define PUS 0x12  // push on stack
 
-#endif // INSTRUCTION_SET_H_
+#endif /* INSTRUCTION_SET_H_ */

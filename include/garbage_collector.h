@@ -8,9 +8,7 @@
 #ifndef GARBAGE_COLLECTOR_H_
 #define GARBAGE_COLLECTOR_H_
 
-#include "windows.h"
-
-#ifndef WINDOWS
+#ifndef _WIN32
 #include <unistd.h>
 #endif
 

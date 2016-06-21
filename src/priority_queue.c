@@ -30,8 +30,8 @@ PRIO_QUEUE * priority_queue_copy(PRIO_QUEUE * pqueue) {
 }
 
 /* hard copy of whole queue */
-PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * pqueue) {
-	PRIO_QUEUE * tmp;
+PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * const pqueue) {
+	PRIO_QUEUE * tmp = NULL;
 	PRIO_QUEUE_ELEM * tmp_elem;
 	tmp_elem = pqueue->first;
 	while(tmp_elem) {

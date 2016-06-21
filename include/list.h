@@ -114,4 +114,4 @@ LIST_ELEM * list_partition(
 /* integer sorter */
 int int_comparator( const void *first_arg, const void *second_arg );
 
-#endif // LIST_H
+#endif /* LIST_H */

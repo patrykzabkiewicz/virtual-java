@@ -10,6 +10,6 @@ void memcpy(int8 * ptr1, int8 * ptr2, int8 len);
 /* compares two strings */
 int strcmp(int8 * str1, int8 * str2);
 
-#endif // CSTRING_H_
+#endif /* CSTRING_H_ */
 
 

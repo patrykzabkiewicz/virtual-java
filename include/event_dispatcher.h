@@ -39,4 +39,4 @@ void event_dispatcher_dispatch(
 		LIST * ptr
 		);
 
-#endif // EVENT_DISPATCHER_H_
+#endif /* EVENT_DISPATCHER_H_ */

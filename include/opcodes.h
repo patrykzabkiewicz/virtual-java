@@ -206,9 +206,9 @@
 #define swap		0x5f
 #define tableswitch	0xaa
 #define wide		0xc4
-//(no name)		cb-fd
+/* (no name)		cb-fd */
 
-#define BREAKPOINT 	                0xCA // = 202;
+#define BREAKPOINT 	                0xCA /* = 202; */
 #define LDC_QUICK                   0xCB
 #define LDC_W_QUICK                 0xCC
 #define LDC2_W_QUICK                0xCD
@@ -226,7 +226,7 @@
 #define INVOKESTATIC_QUICK          0xD9
 #define INVOKEINTERFACE_QUICK       0xDA
 #define INVOKEVIRTUALOBJECT_QUICK   0xDB
-#define NEW_QUICK                   0xDD // = 221
+#define NEW_QUICK                   0xDD /* = 221 */
 #define ANEWARRAY_QUICK             0xDE
 #define MULTIANEWARRAY_QUICK        0xDF
 #define CHECKCAST_QUICK             0xE0
@@ -237,5 +237,5 @@
 #define IMPDEP1                     0xFE
 #define IMPDEP2                     0xFF
 
-#endif // OPCODES_H_
+#endif /* OPCODES_H_ */
 

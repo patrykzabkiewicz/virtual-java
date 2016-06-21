@@ -74,4 +74,4 @@ uint32 MsgSend( uint32 coid,
              void * const rmsg,
              uint32 rbytes );
 
-#endif // CHANNELS_H
+#endif /* CHANNELS_H */

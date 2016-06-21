@@ -25,4 +25,4 @@ void logger_init(QUEUE * const lglog);
 /* add line to log */
 void putlog(QUEUE * const log, LOGLEVEL lvl, const int8 * const msg );
 
-#endif // LOGGER_H_
+#endif /* LOGGER_H_ */

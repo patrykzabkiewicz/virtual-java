@@ -201,5 +201,5 @@ typedef struct Class_File_Format {
 CLASS * load_class(int8 * name);
 void class_destroy(CLASS * const cl);
 
-#endif // PARSER_H_
+#endif /* PARSER_H_ */
 

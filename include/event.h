@@ -25,4 +25,4 @@ typedef struct _event {
 
 void event_init(EVENT * const e);
 
-#endif // EVENT_H
+#endif /* EVENT_H */

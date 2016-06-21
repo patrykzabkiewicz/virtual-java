@@ -12,7 +12,7 @@ void Vec10Copy( vec_t *in, vec_t *out ) {
 }
 
 vec_t _DotProduct (vec3_t v1, vec3_t v2) {
-    vec_t t;
+    vec_t t = 0.0f;
 	return t;
 }
 

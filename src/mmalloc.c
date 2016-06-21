@@ -28,7 +28,7 @@ int mmemcmp(void * const source, void * const end, int elem_size) {
 }
 
 void * mcalloc(size_t size) {
-    void * ptr;
+    void * ptr = NULL;
     return ptr;
 }
 

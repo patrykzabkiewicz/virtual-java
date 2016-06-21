@@ -77,7 +77,7 @@ void list_qsort(
 		) {
 	if(comparator(this->first, this->last))
 	{
-		LIST_ELEM * pivot_ptr = list_partition(this, lo_ptr, hi_ptr, comparator);
+		//LIST_ELEM * pivot_ptr = list_partition(this, lo_ptr, hi_ptr, comparator);
 		// list_qsort(this, lo_ptr, pivot_ptr,comparator);
 		// list_qsort(this, pivot_ptr+1, hi_ptr,comparator);
 	}

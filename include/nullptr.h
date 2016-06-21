@@ -4,4 +4,4 @@
 typedef void * const nullptr;
 #define nullptr (nullptr) 0
 
-#endif // NULLPTR_H_
+#endif /* NULLPTR_H_ */

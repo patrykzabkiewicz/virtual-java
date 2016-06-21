@@ -31,4 +31,4 @@ void chain_append(CHAIN * const chain, CHAIN_ELEM * elem);
 /* chain pop element from the back */
 uint32 chain_pop(CHAIN * const chain, void * data);
 
-#endif // CHAIN_H_
+#endif /* CHAIN_H_ */

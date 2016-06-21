@@ -8,4 +8,4 @@ typedef struct _interprocess {
 	uint8 * ptr;
 } INTERPROCESS;
 
-#endif // INTERPROCESS_H
+#endif /* INTERPROCESS_H */

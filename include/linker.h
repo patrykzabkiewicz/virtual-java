@@ -13,4 +13,4 @@ extern HEAP * user_classes;
 
 void linker(CLASS * const cl);
 
-#endif // CLASS_LOADER_H_
+#endif /* CLASS_LOADER_H_ */

@@ -47,6 +47,4 @@ void queue_append_back_unique(
   int (*comparator)(QUEUE_ELEM * first, QUEUE_ELEM * sec)
   );
 
-#endif // QUEUE_H
-
-
+#endif /* QUEUE_H */

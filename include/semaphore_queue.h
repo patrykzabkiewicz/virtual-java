@@ -30,4 +30,4 @@ void * sem_q_pop(SEMAPHORE_QUEUE * this);
 /* pushes element to the queue */
 void sem_q_push(SEMAPHORE_QUEUE * this, SEMAPHORE_QUEUE_ELEM * elem);
 
-#endif // SEMAPHORE_QUEUE_H
+#endif /* SEMAPHORE_QUEUE_H */

@@ -29,11 +29,11 @@ void string_clear(STRING * string) {
 
 }
 int8 * string_substr(STRING * string, uint32 start_pos, int32 amount) {
-	int8 * substr;
+	int8 * substr = NULL;
 	return substr;
 }
 int8 * string_split(STRING * string, int8 symbol) {
-	int8 * split;
+	int8 * split = NULL;
 	return split;
 }
 void string_destroy(STRING * string) {

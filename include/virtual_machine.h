@@ -73,4 +73,4 @@ void virtual_machine_init(MACHINE * m);
 void virtual_machine_exec(MACHINE * m, CLASS * cl);
 void virtual_machine_destroy(MACHINE * m);
 
-#endif // VIRTUAL_MACHINE_H
+#endif /* VIRTUAL_MACHINE_H */

@@ -1,7 +1,9 @@
 #ifndef TYPEDEF_H
 #define TYPEDEF_H
 
+#ifdef __WIN32__
 #define WINDOWS
+#endif
 
 #ifndef WINDOWS
 #include <unistd.h>
@@ -26,4 +28,5 @@ typedef __int64 int64;
 #define true 1
 #define false 0
 
-#endif // TYPEDEF_H
+#endif /* TYPEDEF_H */
+

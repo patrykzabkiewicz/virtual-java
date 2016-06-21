@@ -1,15 +1,11 @@
 #ifndef MMALLOC_H
 #define MMALLOC_H
 
-#define WINDOWS
-
-#ifndef WINDOWS
+#ifndef _WIN32
 #include <unistd.h>
-#else
-//typedef unsigned int     size_t;
 #endif
 
-#if defined (WINDOWS)
+#ifdef _WIN32
 #include <Windows.h>
 #define alloc(X) VirtualAlloc(NULL, X, MEM_COMMIT, PAGE_EXECUTE_READWRITE)
 #else
@@ -32,4 +28,4 @@ int mmemcmp(void * const source, void * const end, int elem_size);
 
 void mfree(void* ptr);
 
-#endif // MMALLOC_H
+#endif /* MMALLOC_H */

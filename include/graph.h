@@ -119,4 +119,4 @@ void graph_add_edge_flow(VRTX * const va, VRTX * const vb, int32 flow);
 
 
 
-#endif // GRAPH_H_
+#endif /* GRAPH_H_ */

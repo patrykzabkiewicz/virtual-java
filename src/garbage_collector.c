@@ -25,7 +25,7 @@ void * garbage_worker(void * v) {
 		if(garbage_collector->count > GARBAGE_COLLECTOR_LIMIT) {
 			garbage_collect(garbage_collector);
 		}
-#ifndef WINDOWS
+#ifndef _WIN32
 		sleep(1);
 #else
 		Sleep(1000);
@@ -43,7 +43,7 @@ void * garbage_worker(void * v) {
  */
 void garbage_collect(QUEUE * const gb) {
 	uint32 bytes;
-	void * garbage;
+	void * garbage = NULL;
 	while(gb) {
 		bytes = queue_pop_front(gb, garbage);
 		mfree(garbage);

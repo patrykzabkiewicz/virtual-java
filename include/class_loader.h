@@ -14,4 +14,4 @@ void loader_init();
 void load_class(CLASS * const cl);
 void optimize_bytecode(CLASS * const cl);
 
-#endif // CLASS_LOADER_H_
+#endif /* CLASS_LOADER_H_ */

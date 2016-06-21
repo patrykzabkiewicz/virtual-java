@@ -7,4 +7,4 @@
 
 typedef QUEUE UNI_QUEUE;
 
-#endif // UNI_QUEUE_H_
+#endif /* UNI_QUEUE_H_ */
