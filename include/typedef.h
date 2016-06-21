@@ -1,7 +1,9 @@
 #ifndef TYPEDEF_H
 #define TYPEDEF_H
 
-#ifdef __WIN32__
+#include "nullptr.h"
+
+#ifdef _WIN32
 #define WINDOWS
 #endif
 
