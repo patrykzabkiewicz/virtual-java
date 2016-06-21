@@ -20,7 +20,7 @@ typedef struct _list {
 	uint32 count;				/* count of elements in the list */
 	uint32 elem_size;			/* element size in bytes */
 	uint32 list_size;			/* list size in bytes */
-	uint8  copy : 1;			/* copy-on-write idiom */
+	uint8  copy;			/* copy-on-write idiom */
 } LIST;
 
 /* Appends element to front of the list */

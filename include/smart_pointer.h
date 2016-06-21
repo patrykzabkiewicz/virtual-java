@@ -16,7 +16,7 @@ struct _smrt_ptr_p; /* Opaque type */
 typedef struct _smrt_ptr {
 	void * __ptr;					/* valid pointer */
 	struct _smrt_ptr_p * __private; /* private member */
-	uint8 __copy : 1;
+	uint8 __copy;
 
 	void (*smrt_ptr_refrence)(struct _smrt_ptr * ptr);
 	void (*smrt_ptr_release)(struct _smrt_ptr * ptr);

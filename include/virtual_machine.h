@@ -42,10 +42,10 @@ typedef struct _cpu {
 
 	uint32 PC;		/* Program counter */
 
-	uint8 CARRY : 1;		/* Carry flag */
-	uint8 NILL : 1;			/* Result zero */
-	uint8 PAIR : 1;			/* Result is even */
-	uint8 MINUS : 1;		/* Result is negative */
+	uint8 CARRY;		/* Carry flag */
+	uint8 NILL;			/* Result zero */
+	uint8 PAIR;			/* Result is even */
+	uint8 MINUS;		/* Result is negative */
 } PX_CPU;
 
 /* Machine structure */
