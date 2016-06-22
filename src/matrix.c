@@ -50,6 +50,14 @@ MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B);
 MATRIX * const matrix_transpose(MATRIX * const A);
 
 /* calculates determinant of given matrix */
-uint32 matrix_determinant();
+uint32 matrix_determinant(MATRIX * const A) {
+	uint32 det = 0;
+	return det;
+}
 
+/* calculates the matrix rank */
+uint32 matrix_rank(MATRIX * const A) {
+	uint32 rank = 0;
+	return rank;
+}
 

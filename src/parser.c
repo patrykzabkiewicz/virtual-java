@@ -19,18 +19,20 @@ extern QUEUE * lglog;
 CLASS * load_class(int8 * name) {
     // read file to memory
     FILE * fd;
-    uint8 buffer[MAX_FILE_SIZE];
-    uint32 n;
 
     fd = fopen(name, "rb");
     if (fd)
     {
+        uint8 buffer[MAX_FILE_SIZE];
+        uint32 n;
+
         n = fread(buffer, MAX_FILE_SIZE, 1, fd);
-	if(n) 
-	{
-		// print buffer
-		printf("%s",buffer);
-	}
+        if(n) 
+        {
+            // print buffer
+            printf("%s",buffer);
+        }
+	    fclose(fd);
     }
     else
     {

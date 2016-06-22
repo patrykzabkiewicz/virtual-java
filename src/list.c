@@ -57,13 +57,12 @@ void list_remove(
 
 /* reverse elements of the list */
 void list_reverse(LIST * const this) {
-	LIST * tmp = nullptr;
-	LIST_ELEM * tmp_ptr = nullptr;
-
-	tmp_ptr = this->first;
+	LIST * tmp;
+	tmp = (LIST *) mmalloc(sizeof(LIST));
+	LIST_ELEM * tmp_ptr = this->first;
 	while(tmp_ptr) {
-		tmp_ptr->next = tmp->first;
-		tmp->first = tmp_ptr;
+		// TODO reverse the list
+		tmp->last = tmp_ptr;
 		tmp_ptr = tmp_ptr->next;
 	}
 }

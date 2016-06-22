@@ -119,7 +119,8 @@ int main(int argc, char *argv[]) {
 	//cache();
 
 	// starting the main interprer process
-	MACHINE * vm = nullptr;
+	MACHINE * vm;
+	vm = (MACHINE *) mmalloc(sizeof(MACHINE));
 	virtual_machine_init(vm);
 	stack_init(vm->native_ms, sizeof(CLASS));
 

@@ -43,7 +43,7 @@ PRIO_QUEUE * priority_queue_copy(PRIO_QUEUE * pqueue);
 PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * const pqueue);
 
 /* pop element from front */
-uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem);
+uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM ** elem);
 
 /* push element back to queue */
 void priority_queue_push(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem);

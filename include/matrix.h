@@ -27,12 +27,16 @@ void * matrix_init(
 		uint32 elem_size
 );
 
+/* matrix add another matrix */
 MATRIX * const matrix_add(MATRIX * const A, MATRIX * const B);
 
+/* matrix add scalar */
 MATRIX * const matrix_add_factor(MATRIX * const A, uint32 factor);
 
+/* matrix subtract matrix */
 MATRIX * const matrix_sub(MATRIX * const A, MATRIX * const B);
 
+/* matrix subtract scalar */
 MATRIX * const matrix_sub_factor(MATRIX * const A, uint32 factor);
 
 /* multiply matrix by scalar */
@@ -45,6 +49,9 @@ MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B);
 MATRIX * const matrix_transpose(MATRIX * const A);
 
 /* calculates determinant of given matrix */
-uint32 matrix_determinant();
+uint32 matrix_determinant(MATRIX * const A);
+
+/* calculates the matrix rank */
+uint32 matrix_rank(MATRIX * const A);
 
 #endif /* MATRIX_H_ */

@@ -43,7 +43,6 @@ STACK * stack_hard_copy(STACK * stack) {
 	stack_init(tmp, stack->elem_size);
 
 	STACK_ELEM * org_tmp, * dest_tmp;
-	org_tmp = (STACK_ELEM *) mmalloc(sizeof(STACK_ELEM));
 	dest_tmp = (STACK_ELEM *) mmalloc(sizeof(STACK_ELEM));
 
 	tmp->copy = 0;

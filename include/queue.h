@@ -24,7 +24,7 @@ typedef struct _queue {
 void queue_append_back(QUEUE * const queue, QUEUE_ELEM * const elem);
 
 /* Returns number of bytes popped from back of the list */
-uint32 queue_pop_front(QUEUE * const queue, QUEUE_ELEM * const elem);
+uint32 queue_pop_front(QUEUE * const queue, QUEUE_ELEM ** elem);
 
 /* Initiates the list structure */
 void queue_init(QUEUE * const queue, uint32 elem_size);

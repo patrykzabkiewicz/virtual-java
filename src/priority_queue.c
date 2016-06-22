@@ -33,9 +33,12 @@ PRIO_QUEUE * priority_queue_copy(PRIO_QUEUE * pqueue) {
 PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * const pqueue) {
 	PRIO_QUEUE * tmp = NULL;
 	PRIO_QUEUE_ELEM * tmp_elem;
+
+	tmp = (PRIO_QUEUE *) mmalloc(sizeof(PRIO_QUEUE));
+	priority_queue_init(tmp, sizeof(PRIO_QUEUE_ELEM), pqueue->comparator);
 	tmp_elem = pqueue->first;
 	while(tmp_elem) {
-		tmp->first = mmalloc(sizeof(PRIO_QUEUE_ELEM));
+		tmp->first = (PRIO_QUEUE_ELEM *)mmalloc(sizeof(PRIO_QUEUE_ELEM));
 		mmemcpy(tmp->first, tmp_elem, sizeof(PRIO_QUEUE_ELEM));
 		tmp_elem = tmp_elem->next;
 	}
@@ -43,8 +46,8 @@ PRIO_QUEUE * priority_queue_hard_copy(PRIO_QUEUE * const pqueue) {
 }
 
 /* pop element from front */
-uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM * elem) {
-	elem = pqueue->first;
+uint32 priority_queue_pop(PRIO_QUEUE * pqueue, PRIO_QUEUE_ELEM ** elem) {
+	*elem = pqueue->first;
 	pqueue->first = pqueue->first->next;
 	return pqueue->elem_size;
 }

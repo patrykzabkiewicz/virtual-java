@@ -42,9 +42,9 @@ void * garbage_worker(void * v) {
  * collects garbage 
  */
 void garbage_collect(QUEUE * const gb) {
-	uint32 bytes;
 	void * garbage = NULL;
 	while(gb) {
+		uint32 bytes;
 		bytes = queue_pop_front(gb, garbage);
 		if(bytes > 0) {
 			mfree(garbage);
