@@ -9,11 +9,12 @@
 #define MAP_H_
 
 #include "typedef.h"
+#include "mmalloc.h"
 
+/* struct of int */
 typedef struct _map_elem {
-	uint8 * key;							/* key value */
-	void * data;							/* data */
-	uint32 indx;							/* index */
+	uint8 * key;					/* key value */
+	void * data;					/* data */
 	struct _map_elem * const parent;		/* parent of the tree */
 	struct _map_elem * const left;			/* left branch */
 	struct _map_elem * const right;			/* right branch */
@@ -22,7 +23,7 @@ typedef struct _map_elem {
 typedef struct _map_h {
 	uint32 key_size;				/* key value size */
 	uint32 data_size;				/* data element size */
-	MAP_ELEM * const data;			/* pointer to data */
+	MAP_ELEM * data;			        /* pointer to data */
 } MAP;
 
 MAP * const map_init(

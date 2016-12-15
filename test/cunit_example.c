@@ -114,12 +114,14 @@ int main()
    /* add the tests to the suite */
    /* NOTE - ORDER IS IMPORTANT - MUST TEST fread() AFTER fprintf() */
    if ((NULL == CU_add_test(pSuite, "test of fprintf()", testFPRINTF)) ||
-       (NULL == CU_add_test(pSuite, "test of fread()", testFREAD)))
+       (NULL == CU_add_test(pSuite, "test of fread()", testFREAD)) ||
+       (NULL == CU_add_test(pSuite, "test of fread()", testFREAD)) ||
+       (NULL == CU_add_test(pSuite, "test of fread()", testFREAD))       
+       )
    {
       CU_cleanup_registry();
       return CU_get_error();
    }
-
    /* Run all tests using the CUnit Basic interface */
    CU_basic_set_mode(CU_BRM_VERBOSE);
    CU_basic_run_tests();

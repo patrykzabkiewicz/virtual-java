@@ -1,5 +1,5 @@
 /*
- * map.c
+ *  map.c
  *
  *  Created on: 24 kwi 2016
  *      Author: zabkiewi
@@ -8,19 +8,26 @@
 #include "map.h"
 
 MAP * const map_init(
-		MAP * const map,
+		MAP * map,
 		uint32 const key_size,
 		uint32 const data_size
-		) {
-            return map;
-        }
+		) 
+{
+    map = (MAP *) mmalloc(sizeof(MAP));
+
+    map->key_size = key_size;
+    map->data_size = data_size;
+
+    return map;
+}
 
 /**
  * inserts the element into hash map tree
  * returns a pointer to the inserted element
  */
-void map_insert(MAP * const map, MAP_ELEM const * const elem) {
-
+void map_insert(MAP * const map, MAP_ELEM const * const elem) 
+{
+    
 }
 
 /**
