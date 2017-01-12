@@ -11,6 +11,25 @@
 #include "typedef.h"
 #include "mmalloc.h"
 
+typedef struct _vec2 {
+	uint32 dims;
+	uint32 * const data;
+} VEC2;
+
+typedef struct _vec {
+	uint32 dims;
+	uint32 * const dim_sizes;
+	uint32 * const data;
+} VEC;
+
+
+// can the matrix be the collection of vectors with the same size
+typedef struct _matrix2 {
+	uint32 dims;
+	VEC2 * const data;
+} MATRIX2;
+
+
 typedef struct _matrix {
 	uint32 dims;				/* dim size */
 	uint32 * const dim_sizes;	/* dimensions sizes */
