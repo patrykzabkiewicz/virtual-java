@@ -78,17 +78,34 @@ struct {
 	{ "string", "string", "string" }
 };
 
-/* ******** */
+
+void bootstrap_cache_load() {
+
+}
+
+
+/* ******************************* */
 int main(int argc, char *argv[]) {
-/* ******** */
+/* ******************************* */
+
+	// standard counter
 	int32 i;
 
+	// check if the parameter exist otherwise print help and exit
 	if(argc < 2) {
-		printf("no class file name given");
+		printf("no class file name given\n");
+		return -1;
+	}
+
+	// check if the given filename exist
+	char * filename = argv[1]; 
+	if(!fopen(filename,"r")) {
+		printf("no class file found\n");
 		return -1;
 	}
 
 	// bootstrap class loader
+	bootstrap_cache_load();
 
 	// should be threaded
 	// NCC = native class count

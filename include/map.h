@@ -1,5 +1,9 @@
 /*
- * map.h
+ * 	map.h
+ *
+ *	ordered map implementation fastest as possible
+ *	independend from the data type
+ *
  *
  *  Created on: 24 kwi 2016
  *      Author: zabkiewi
