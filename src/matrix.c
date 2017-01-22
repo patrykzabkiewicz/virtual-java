@@ -11,16 +11,13 @@
 void * matrix_init(
 		MATRIX * const A,
 		uint32 dims,
-		uint32 * dim_sizes,
-		uint32 elem_size
+		uint32 * dim_sizes
 		) {
 	uint32 i;
 	A->dims = dims;
 	for(i=0; i < dims; i++) {
 		A->dim_sizes[i] = dim_sizes[i];
 	}
-	A->elem_size = elem_size;
-
 	return A;
 }
 
