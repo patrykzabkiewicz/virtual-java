@@ -97,11 +97,46 @@ MATRIX * const matrix_multiply_factor(MATRIX * const A, uint32 factor) {
 	return A;
 }
 
-/* multiply two matrices */
-MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B);
+/* 
+	multiply two matrices 
+	to be honest this topic is so huge that in can be gathered in another file
+*/
+int * const matrix_multiply(int * const A, int * const B) {
+	int N;
+	int K;
+	int M;
+	int * C;
 
-/* transpose matrix */
-MATRIX * const matrix_transpose(MATRIX * const A);
+	for (int i = 0; i<N; i++) {
+		for (int j = 0; j<K; j++) {
+			float tmp = 0;
+			for (int l = 0; l<M; l++) {
+				tmp += A[M*i + l] * B[K*l + j];
+			}
+			C[K*i + j] = tmp;
+		}
+	}
+
+	/*
+
+	transpose(B);
+	for(int i=0; i<N; i++) {
+		for(int j=0; j<K; j++) {
+			float tmp = 0;
+			for(int l=0; l<M; l++) {
+				tmp += A[M*i+l]*B[K*j+l];
+			}
+			C[K*i + j] = tmp;
+		}
+	}
+	transpose(B);
+	
+	*/
+
+	return C;
+}
+
+
 
 /* calculates determinant of given matrix */
 uint32 matrix_determinant(MATRIX * const A) {
