@@ -43,8 +43,7 @@ typedef struct _matrix {
 void * matrix_init(
 		MATRIX * const A,
 		uint32 dims,
-		uint32 * dim_sizes,
-		uint32 elem_size
+		uint32 * dim_sizes
 );
 
 /* matrix add another matrix */
