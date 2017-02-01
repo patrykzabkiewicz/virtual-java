@@ -94,46 +94,37 @@ MATRIX * const matrix_multiply_factor(MATRIX * const A, uint32 factor) {
 	return A;
 }
 
-/* 
-	multiply two matrices 
-	to be honest this topic is so huge that in can be gathered in another file
-*/
-int * const matrix_multiply(int * const A, int * const B) {
-	int N;
-	int K;
-	int M;
-	int * C;
+#define matrix_multiply(A,B)()
 
-	for (int i = 0; i<N; i++) {
-		for (int j = 0; j<K; j++) {
-			float tmp = 0;
-			for (int l = 0; l<M; l++) {
-				tmp += A[M*i + l] * B[K*l + j];
-			}
-			C[K*i + j] = tmp;
-		}
-	}
+/* multiply two matrices */
+MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B) {
+	int i;
+	int j;
 
-	/*
+	/* new matrix sizes */
+	int ABx = A->dim_size[0];
+	int ABy = B->dim_size[1];
 
-	transpose(B);
-	for(int i=0; i<N; i++) {
-		for(int j=0; j<K; j++) {
-			float tmp = 0;
-			for(int l=0; l<M; l++) {
-				tmp += A[M*i+l]*B[K*j+l];
-			}
-			C[K*i + j] = tmp;
-		}
-	}
-	transpose(B);
+	// first check the sizes
+	if(A->dims > 2) return NULL; 
+	// number of colums must be equal number of rows
+	if(A->dim_sizes[0] != B->dim_sizes[1]) return NULL;
+
+
+	MATRIX * AB = (struct _matrix *) malloc(sizeof(struct _matrix));
+	AB->data = (int *) malloc(sizeof(int) * A->);
 	
-	*/
+	for(i=0; i<A->dims[0];i++) {
+		for(j=0; j<A->dims[1]; j++) {
 
-	return C;
+		}
+		// AB[0][0] = A[0][0] * B[0][0] + A[0][1] * B[1][0];
+		// AB[0][1] = A[1][0] * B[0][1];
+	}
 }
 
-
+/* transpose matrix */
+MATRIX * const matrix_transpose(MATRIX * const A);
 
 /* calculates determinant of given matrix */
 uint32 matrix_determinant(MATRIX * const A) {
@@ -146,3 +137,16 @@ uint32 matrix_rank(MATRIX * const A) {
 	uint32 rank = 0;
 	return rank;
 }
+
+/* append vector at the right of the matrix */
+MATRIX * const matrix_append(MATRIX * const A, VECTOR * const V) {
+	int i;
+
+	/* check sizes */
+	if(A->dim_sizes[0] != V->size) return NULL;
+
+	for() {}
+
+	return NULL;
+}
+

@@ -6,7 +6,7 @@
 	next - vertex indices initialized to null
 */
 
-#include <stdlib.h>
+#define NULL 0
 
 void floyd_warshall(int * dist[], int * next[], int V) {
 	int u;
@@ -49,3 +49,5 @@ int * path_reconstruction(int * next[], int * path) {
 	}
 	return path;
 }
+
+

@@ -10,6 +10,7 @@
 
 #include "typedef.h"
 #include "mmalloc.h"
+#include "vector.h"
 
 // help structure for matricies
 typedef struct _vec {
@@ -33,7 +34,7 @@ typedef struct _matrix2d {
 } MATRIX2D;
 
 
-typedef struct _matrix {
+typedef struct _matrix_int {
 	uint32 dims;				/* dim size */
 	uint32 * const dim_sizes;	/* dimensions sizes */
 	int * const data;			/* data pointer */
@@ -72,5 +73,16 @@ uint32 matrix_determinant(MATRIX * const A);
 
 /* calculates the matrix rank */
 uint32 matrix_rank(MATRIX * const A);
+
+/* append vector at the right of the matrix */
+MATRIX * const matrix_append(MATRIX * const A, VECTOR * const V);
+
+/* logical matrix operations */
+MATRIX * const matrix_xor(MATRIX * const A, MATRIX * const B);
+MATRIX * const matrix_or(MATRIX * const A, MATRIX * const B);
+MATRIX * const matrix_and(MATRIX * const A, MATRIX * const B);
+MATRIX * const matrix_not(MATRIX * const A, MATRIX * const B);
+
+
 
 #endif /* MATRIX_H_ */
