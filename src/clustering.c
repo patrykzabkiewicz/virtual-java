@@ -46,9 +46,11 @@ void knn_cluster(
 	int * parent = (int *) malloc(sizeof(int) * in_node_count); // array of parent classes
 	float * classes = (float *)malloc(sizeof(float) * in_node_count); // array of class means
 
-	/* for every node */
+	/* for every k-cluster */
 	for (m = 0; m < k; m++) {
+		/* for every node */
 		for (i = 0; i < in_node_count; i++) {
+			/* for every other node */
 			for (j = 0; j < in_node_count; j++) {
 				if (distance(in[i][j], classes[i]) < EPSILON) {
 					parent[j] = i;
