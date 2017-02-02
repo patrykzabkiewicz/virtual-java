@@ -1,34 +1,58 @@
 
+#include <stdlib.h>
+
+#define EPSILON 0.1
 
 /*
-	square clustering
-	cluster graph by dividing verticies into square segments
+square clustering
+cluster graph by dividing verticies into square segments
 */
-void square_cluster(int * const in, int * const out);
+int * square_cluster(int * graph);
 
 /*
-	nearest neighbor clustering
-	cluster graph by squeze nearest neighbors into one node
+nearest neighbor clustering
+cluster graph by squeze nearest neighbors into one node
+
+implementation details:
+NN is implemented on basis of reduction of classes by merging two low distance classes together
+at beginning we asume that every node in graph is a seperate class
+for every node in graph we calculate distance to every class (note above statment)
+if distance is less than epsilon than we do merge them
+
+Can this algorithm be repeated recursivly?
+Can we implement this as recursion?
+Can we send the classes onto heap?
+
 */
-void nn_cluster(int * const in, int * const out);
+void nn_cluster(int * const in[], /* adjencity matrix input */
+	int * const out[], /* adjencity matrix output after nn clustering */
+	int in_node_count);
 
 
-void square_cluster(int * const in, int * const out) {
-    /*  */
+int * square_cluster(int * graph) {
 
 }
 
-void nn_cluster(int * const in, int * const out) {
-    int i;
-    int j;
-    HEAP * H;
+void knn_cluster(
+	int * const in[],	/* adjencity matrix input */
+	int * const out[],	/* adjencity matrix output after nn clustering */
+	int in_node_count,
+	int k				/* amount of cluster levels */
+) {
+	int i;
+	int j;
+	int m;
+	const double eps = EPSILON;
+	int * classes = (int *) malloc(sizeof(int) * in_node_count); // array of parent classes
 
-    /* for every node push neighbors to the heap */
-    for(i=0; i<in->count; i++) {
-        for(j=0; j<in[i]->adj_count; j++) {
-            heap_push(H,i);
-        }
-    }
-
-
+	/* for every node */
+	for (m = 0; m < k; m++) {
+		for (i = 0; i < in_node_count; i++) {
+			for (j = 0; j < in_node_count; j++) {
+				if (distance(in[i][j], classes[i]) < EPSILON) {
+					classes[j] = i;
+				}
+			}
+		}
+	}
 }
