@@ -24,7 +24,7 @@ Can we implement this as recursion?
 Can we send the classes onto heap?
 
 */
-void nn_cluster(int * const in[], /* adjencity matrix input */
+void knn_cluster(int * const in[], /* adjencity matrix input */
 	int * const out[], /* adjencity matrix output after nn clustering */
 	int in_node_count);
 
@@ -43,14 +43,15 @@ void knn_cluster(
 	int j;
 	int m;
 	const double eps = EPSILON;
-	int * classes = (int *) malloc(sizeof(int) * in_node_count); // array of parent classes
+	int * parent = (int *) malloc(sizeof(int) * in_node_count); // array of parent classes
+	float * classes = (float *)malloc(sizeof(float) * in_node_count); // array of class means
 
 	/* for every node */
 	for (m = 0; m < k; m++) {
 		for (i = 0; i < in_node_count; i++) {
 			for (j = 0; j < in_node_count; j++) {
 				if (distance(in[i][j], classes[i]) < EPSILON) {
-					classes[j] = i;
+					parent[j] = i;
 				}
 			}
 		}
