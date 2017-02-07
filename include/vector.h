@@ -13,8 +13,8 @@
 
 /* boundry checks array/vector */
 
-typedef struct _vector {
-	void * data;			/* array data */
+typedef struct _vector_int {
+	int * data;				/* array data */
 	uint32 elem_size;		/* max jump */
 	uint32 count;			/* elements count */
 	uint32 capacity;		/* max size of vector */

@@ -94,16 +94,14 @@ MATRIX * const matrix_multiply_factor(MATRIX * const A, uint32 factor) {
 	return A;
 }
 
-#define matrix_multiply(A,B)()
-
 /* multiply two matrices */
 MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B) {
 	int i;
 	int j;
 
 	/* new matrix sizes */
-	int ABx = A->dim_size[0];
-	int ABy = B->dim_size[1];
+	int ABx = A->dim_sizes[0];
+	int ABy = B->dim_sizes[1];
 
 	// first check the sizes
 	if(A->dims > 2) return NULL; 
@@ -111,11 +109,11 @@ MATRIX * const matrix_multiply(MATRIX * const A, MATRIX * const B) {
 	if(A->dim_sizes[0] != B->dim_sizes[1]) return NULL;
 
 
-	MATRIX * AB = (struct _matrix *) malloc(sizeof(struct _matrix));
-	AB->data = (int *) malloc(sizeof(int) * A->);
+	MATRIX * AB = (struct _matrix *) malloc(sizeof(struct _matrix_int));
+	AB->data = (int *) malloc(sizeof(int) * A->dim_sizes[0]);
 	
-	for(i=0; i<A->dims[0];i++) {
-		for(j=0; j<A->dims[1]; j++) {
+	for(i=0; i<A->dims;i++) {
+		for(j=0; j<A->dims; j++) {
 
 		}
 		// AB[0][0] = A[0][0] * B[0][0] + A[0][1] * B[1][0];
@@ -142,11 +140,36 @@ uint32 matrix_rank(MATRIX * const A) {
 MATRIX * const matrix_append(MATRIX * const A, VECTOR * const V) {
 	int i;
 
-	/* check sizes */
-	if(A->dim_sizes[0] != V->size) return NULL;
+	/* check nulls */
+	if(A == NULL || V == NULL) return NULL;
 
-	for() {}
+	/* check sizes */
+	if(A->dim_sizes[0] != V->count) return NULL;
+
+	A->dim_sizes[1]++;
+	A->data = 1;
+
+	/* for every vector element */
+	for(i=0; i<V->count; i++) {
+		A->data[A->dim_sizes[0]+i] = V->data[i];
+	}
 
 	return NULL;
 }
+
+/* logical matrix operations */
+MATRIX * const matrix_xor(MATRIX * const A, MATRIX * const B) {
+	if(A == NULL || B == NULL) return NULL;
+	
+}
+MATRIX * const matrix_or(MATRIX * const A, MATRIX * const B) {
+
+}
+MATRIX * const matrix_and(MATRIX * const A, MATRIX * const B) {
+
+}
+MATRIX * const matrix_not(MATRIX * const A, MATRIX * const B) {
+
+}
+
 

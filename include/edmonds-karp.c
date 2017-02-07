@@ -1,4 +1,7 @@
 
+#define MAX_INT 2143748
+
+
 /* maximum flow in network with  */
 void edmonds_karp(
     int * const C[], /* capacity matrix */
@@ -34,20 +37,21 @@ void edmonds_karp(
 
 /* helping algorithm for finding shortest path with avaible capacity */
 void breadest_first_search(
-    int * const C[],
-    int * const T[],
-    int s,
-    int t,
-    int * const F[],
+    int * const C[],        /* capacity matrix */
+    int * const T[],        /* residual matrix */
+    int s,                  /* source index */
+    int t,                  /* sink index */
+    int * const F[],        /* flow matrix */
     /* outputs */
-    int M, /* capacity of path found */
-    int * P /* parent table */
+    int M,                  /* capacity of path found, scalar */
+    int * P                 /* parent table */
 ) {
     int u;
     int n = 10;
-    QUEUE * Q;
+    INT_QUEUE * Q;
 
-    P = malloc();
+    /* allocate parent table */
+    P = (int *) malloc(sizeof(int) * );
     
     for(u=0; u<n; u++) {
         P[u] = -1;
@@ -63,6 +67,7 @@ void breadest_first_search(
 
     while(Q->size > 0) {
         u = queue_pop(Q);
+        /* for every element in T */
         for() {
             if(T[u][v] > 0 && P[v] = -1) {
                 P[v] = u;

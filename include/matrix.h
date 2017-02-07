@@ -37,7 +37,7 @@ typedef struct _matrix2d {
 typedef struct _matrix_int {
 	uint32 dims;				/* dim size */
 	uint32 * const dim_sizes;	/* dimensions sizes */
-	int * const data;			/* data pointer */
+	int * data;					/* data pointer */
 } MATRIX;
 
 /* initiaties the matrix and returns pointer to it */
