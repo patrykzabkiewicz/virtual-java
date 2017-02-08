@@ -2,7 +2,7 @@
 #define NULL 0
 
 /*
-	
+	pyramid space 
 */
 void pyramid(int * in[], int * out[], int in_count);
 
