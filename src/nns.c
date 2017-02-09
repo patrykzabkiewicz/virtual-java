@@ -1,5 +1,6 @@
 
-#define NULL 0
+#include <stdlib.h>
+#include <math.h>
 
 #ifndef USE_FLOAT
 #define vec_t int
@@ -24,7 +25,10 @@ typedef struct _rtree {
 } Rtree;
 
 
-int distance(Point * const A, Point * const B) {
+/*
+	calculate euclidan distance between two given points
+*/
+vec_t distance(Point * const A, Point * const B) {
 	int X = abs(A->x - B->x);
 	int Y = abs(A->y - B->y);
 	return sqrt( X*X + Y*Y );
@@ -35,13 +39,19 @@ int distance(Point * const A, Point * const B) {
 	linear approach
 */
 void kNNG(
-	Point * points,		/* spatial points */
+	Point * const points,		/* spatial points */
 	int spc,			/* spatial points count */
 	/* output */
-	Spatial * graph
+	Spatial * const graph
 ) {
 	int i,j;
-	int * dist_m = (int *) malloc(sizeof(int) * spc * spc);
+	int * dist_m;
+	
+	if(points == NULL) return;
+	if(graph == NULL) return;
+	if(spc < 1) return;
+
+	dist_m = (int *) malloc(sizeof(int) * spc * spc);
 
 	/* for every point check all other points */
 	for (i = 0; i < spc; i++) {
@@ -50,10 +60,14 @@ void kNNG(
 		}
 	}
 
+	free(dist_m);
 }
 
 
 /*
 	Nearest Neighbor Search
+	using humming distance for discrete spatial space partitioning
 */
-void NNS(Point * spatial, int spc) {}
+void NNS(Point * const spatial, int spc) {
+	
+}
